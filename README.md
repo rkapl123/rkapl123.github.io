@@ -1,4 +1,4 @@
-# Kapl.org
+# kapl.org redirected
 
 This is an overview of my opensource projects and some nice tips I've collected so far.
 
