@@ -1,4 +1,7 @@
-# kapl.org redirected
+---
+title: kapl.org redirected
+layout: post
+---
 
 This is an overview of my opensource projects and some nice tips I've collected so far.
 
