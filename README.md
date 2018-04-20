@@ -1,10 +1,3 @@
----
-title: kapl.org redirected
-layout: post
----
-
-This is an overview of my opensource projects and some nice tips I've collected so far.
-
 ## DBAddin
 DBAddin (the current working version being a legacy VB6 COM Addin) is two things in one:
 
