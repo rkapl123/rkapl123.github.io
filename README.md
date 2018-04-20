@@ -11,7 +11,7 @@ DBAddin (the current working version being a legacy VB6 COM Addin) is two things
 
 A small, but useful additional database filling and updating tool is the "Mapper", which you can use to send an Excel range to the Database, updating/inserting the content into the table(s) given as arguments.
 
-DBAddin is still hosted on https://sourceforge.net/projects/dbaddin/, to get the latest version download a tarball with the snapshot facility in sourceforge: https://sourceforge.net/p/dbaddin/code/HEAD/tarball, the full documentation is available here: http://dbaddin.sourceforge.net/HelpFrameset.htm
+DBAddin is still hosted on https://sourceforge.net/projects/dbaddin, to get the latest version download a tarball with the snapshot facility in sourceforge: https://sourceforge.net/p/dbaddin/code/HEAD/tarball, the full documentation is available here: http://dbaddin.sourceforge.net/HelpFrameset.htm
 
 To install this, run dbaddin-code-2/install/install.cmd as administrator. To configure your environment, edit dbaddin-code-2/install/DBAddinSettings.reg before.
 
@@ -21,7 +21,7 @@ I'm in the process of rewriting this as a Excel-DNA Based .NET Addin, available 
 Raddin is a simple Excel-DNA based Add-in for handling R-scripts from Excel via shell or RdotNet, storing input objects (scalars/vectors/matrices)
 and retrieving result objects (scalars/vectors/matrices) as text files (currently restricted to tab separated) or RdotNet objects.
 Graphics are retrieved from produced png files into Excel to be displayed as diagrams.  
-For the full documentation see: https://rkapl123.github.io/RAddin/
+For the full documentation see: https://rkapl123.github.io/RAddin
 
 ## ExchangeSetOOF
 
@@ -33,7 +33,7 @@ Documentation and download available here: https://github.com/rkapl123/ExchangeS
 
 ## Opensource Risk Engine
 
-I'm a keen user of Quantlib and the Opensource Risk Engine, my intention is to provide Tools for easier implementation of the Engine (ORE, http://www.opensourcerisk.org/)
+I'm a keen user of Quantlib and the Opensource Risk Engine, my intention is to provide Tools for easier implementation of the Engine (ORE, http://www.opensourcerisk.org)
 
 - easy starting from Excel (OreAddin in conjunction with OreMgr),
 - loading ORE data from a Database (OreDB)
