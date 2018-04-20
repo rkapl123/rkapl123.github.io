@@ -29,9 +29,9 @@ ExchangeSetOOF logs in to the currently logged in users account (using EWS AutoD
 
 Documentation and download available here: [https://github.com/rkapl123/ExchangeSetOOF](https://github.com/rkapl123/ExchangeSetOOF)
 
-## Opensource Risk Engine ([ORE]((http://www.opensourcerisk.org))
+## OreControl
 
-I'm a keen user of Quantlib and the Opensource Risk Engine, my intention is to provide Tools for easier implementation of the Engine.
+I'm a keen user of [Quantlib](http://quantlib.org) and the Opensource Risk Engine ([ORE](http://www.opensourcerisk.org)), my intention is to provide Tools for easier implementation of the Engine.
 
 - easy starting from Excel (OreAddin in conjunction with OreMgr),
 - loading ORE data from a Database (OreDB)
