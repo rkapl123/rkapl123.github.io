@@ -42,6 +42,8 @@ ExchangeSetOOF provides programmatic setting of automatic replies (out of office
 
 ExchangeSetOOF logs in to the currently logged in users account (using EWS AutoDiscover with users account Emailaddress using System.DirectoryServices.AccountManagement) and searches the appointments between today and the next business day (based on only austrian holidays, this is currently hardcoded in function isHoliday) for appointments being set "away".
 
+If any such appointment is found, ExchangeSetOOF replaces the template's date placeholder with the respective end date and (if wanted) also start date. The languages used for the replacement of the date placeholders are (hardcoded) german and english (easily changed at the top of the program). The automatic reply (out of office) is being scheduled to start from the Start Date of the OOF appointment and end on the End Date of the OOF appointment.
+
 Documentation and download available here: [https://github.com/rkapl123/ExchangeSetOOF](https://github.com/rkapl123/ExchangeSetOOF)
 
 ## other MS-Office based Addins
