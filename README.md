@@ -1,6 +1,7 @@
 All repositories: [https://github.com/rkapl123](https://github.com/rkapl123)
 
 ## Quantlib fully annotated source documentation
+
 As a frequent user of [Quantlib](http://quantlib.org), I found that I needed to read more than the official reference documentation provided on the official website. So I decided to tweak the doxygen config to produce a fully annotated source documentation of quantlib including collaboration diagrams, call/caller diagrams and a working search box: [https://rkapl123.github.io/QLAnnotatedSource](https://rkapl123.github.io/QLAnnotatedSource)
 
 ## OreControl
@@ -14,11 +15,12 @@ I'm using the Opensource Risk Engine ([ORE](http://www.opensourcerisk.org), base
 All this will be available in: [https://github.com/rkapl123/OreControl](https://github.com/rkapl123/OreControl)
 
 ## DBAddin
-DBAddin (the current working version being a legacy VB6 COM Addin) is two things in one:
 
-- A COM/Automation Add-in for database querying by userdefined functions (DBFuncs). This is opposed to the Excel/Word integrated MS-Query, which is integrated statically into the worksheet and has some limitations in terms of querying possibilities and flexibility of constructing parameterized queries (MS-Query allows parameterized queries only in simple queries that can be displayed graphically). This also includes the possibility for filling "data bound" controls (ComboBoxes and Listboxes) with data from queries. Other useful functions for working with database data are included as well.
+DBAddin (the current working version being a legacy VB6 COM Addin) is an Excel-Addin providing two main functions:
 
-- A way to edit Database data directly in Excel using so called "DBSheets", which are special ExcelWorksheets that enable you to manipulate database data directly inside Excel (similar to MS Access table view). In DBSheets you can define a foreign key lookup resolution for foreign keys, so columns containing foreign IDs can be edited more easily. Another feature is the "jumping" to a referenced record in a foreign dependent table, if it's defined as a DBSheet in the same Workbook.
+- Userdefined functions (DBFuncs) for database querying. This is opposed to the integrated MS-Query, which is stored statically in the worksheet and has serious limitations in terms of querying possibilities and constructing parameterized queries (MS-Query allows parameterized queries only for simple queries that can be displayed graphically). Also included is a possibility for filling "data bound" controls (ComboBoxes and Listboxes) with data from queries. Further useful functions for working with database data are included as well.
+
+- Edit Database data directly in Excel using so called "DBSheets", which are special Excel worksheets that enable you to manipulate database data directly inside Excel (similar to MS Access table view). In DBSheets you can define a foreign key lookup resolution for foreign keys, so columns containing foreign IDs can be edited more easily. Another feature is the "jumping" to a referenced record in a foreign dependent table, if it's defined as a DBSheet in the same Workbook.
 
 A small, but useful additional database filling and updating tool is the "Mapper", which you can use to send an Excel range to the Database, updating/inserting the content into the table(s) given as arguments.
 
@@ -31,6 +33,7 @@ The full documentation of DBAddin is available online at [http://dbaddin.sourcef
 I'm in the process of rewriting this as a Excel-DNA Based .NET Addin, being available at [https://github.com/rkapl123/DBAddin](https://github.com/rkapl123/DBAddin).
 
 ## RAddin
+
 Raddin is a simple Excel-DNA based Add-in for handling R-scripts from Excel via shell or RdotNet, storing input objects (scalars/vectors/matrices)
 and retrieving result objects (scalars/vectors/matrices) as text files (currently restricted to tab separated) or RdotNet objects.
 Graphics are retrieved from produced png files into Excel to be displayed as diagrams.  
