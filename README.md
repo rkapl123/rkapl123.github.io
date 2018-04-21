@@ -1,3 +1,18 @@
+All repositories: [https://github.com/rkapl123](https://github.com/rkapl123)
+
+## Quantlib fully annotated source documentation
+As a frequent user of [Quantlib](http://quantlib.org), I found that I needed to read more than the official reference documentation provided on the official website. So I decided to tweak the doxygen config to produce a fully annotated source documentation of quantlib including collaboration diagrams, call/caller diagrams and a working search box: [https://rkapl123.github.io/QLAnnotatedSource](https://rkapl123.github.io/QLAnnotatedSource)
+
+## OreControl
+
+I'm using the Opensource Risk Engine ([ORE](http://www.opensourcerisk.org), based on Quantlib), my intention is to provide Tools for easier interaction with/integration of the Opensource Risk Engine. Following three goals are envisaged:
+
+- [ ] easy starting from Excel (OreAddin in conjunction with OreMgr),
+- [x] loading and migrating ORE data from/to a Database (OreDB)
+- [ ] a SWIG wrapper (OreMgr) to allow starting ORE from .NET and other environments.
+
+All this will be available in: [https://github.com/rkapl123/OreControl](https://github.com/rkapl123/OreControl)
+
 ## DBAddin
 DBAddin (the current working version being a legacy VB6 COM Addin) is two things in one:
 
@@ -29,12 +44,11 @@ ExchangeSetOOF logs in to the currently logged in users account (using EWS AutoD
 
 Documentation and download available here: [https://github.com/rkapl123/ExchangeSetOOF](https://github.com/rkapl123/ExchangeSetOOF)
 
-## OreControl
+## other MS-Office based Addins
 
-I'm a keen user of [Quantlib](http://quantlib.org) and the Opensource Risk Engine ([ORE](http://www.opensourcerisk.org)), my intention is to provide Tools for easier implementation of the Engine.
+Following Addins are available (only for 32-bit Office installations due to VB6/COM implementation):
 
-- easy starting from Excel (OreAddin in conjunction with OreMgr),
-- loading ORE data from a Database (OreDB)
-- a SWIG wrapper (OreMgr)
-
-All this will be available in: [https://github.com/rkapl123/OreControl](https://github.com/rkapl123/OreControl)
+### CMD-Line parser Add-In
+Command Argument processing for Excel, Word and Powerpoint to allow (almost) headless starting VB-Macros: [https://sourceforge.net/projects/officegoodies/files/CmdArgs](https://sourceforge.net/projects/officegoodies/files/CmdArgs)
+### Log-Addin
+flexible file and eventLog logging from MS-Office applications and VBScript: [https://sourceforge.net/projects/officegoodies/files/LogAddin/1.0.2/LogAddinSetup.1.0.2.msi/download](https://sourceforge.net/projects/officegoodies/files/LogAddin/1.0.2/LogAddinSetup.1.0.2.msi/download)
