@@ -16,7 +16,7 @@ All this will be available in: [https://github.com/rkapl123/OreControl](https://
 
 ## DBAddin
 
-DBAddin (the current working version being a legacy VB6 COM Addin) is an Excel-Addin providing two main functions:
+DBAddin (the current working version being a legacy VB6 COM Addin) is an Excel-Addin, providing two main functions:
 
 - Userdefined functions (DBFuncs) for database querying. This is opposed to the integrated MS-Query, which is stored statically in the worksheet and has serious limitations in terms of querying possibilities and constructing parameterized queries (MS-Query allows parameterized queries only for simple queries that can be displayed graphically). Also included is a possibility for filling "data bound" controls (ComboBoxes and Listboxes) with data from queries. Further useful functions for working with database data are included as well.
 
@@ -57,3 +57,10 @@ Following Addins are available (only for 32-bit Office installations due to VB6/
 Command Argument processing for Excel, Word and Powerpoint to allow (almost) headless starting VB-Macros: [https://sourceforge.net/projects/officegoodies/files/CmdArgs](https://sourceforge.net/projects/officegoodies/files/CmdArgs)
 ### Log-Addin
 flexible file and eventLog logging from MS-Office applications and VBScript: [https://sourceforge.net/projects/officegoodies/files/LogAddin/1.0.2/LogAddinSetup.1.0.2.msi/download](https://sourceforge.net/projects/officegoodies/files/LogAddin/1.0.2/LogAddinSetup.1.0.2.msi/download)
+
+## useful tips
+
+Following are links to pages with useful information I've collected during my endeavors.
+
+### SQL Server XML generation
+With examples from the ORE DB project: [SQLServerXML](SQLServerXML.md)
