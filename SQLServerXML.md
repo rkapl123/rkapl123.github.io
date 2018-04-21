@@ -6,6 +6,7 @@ Mainly using the PATH flavour, I was able to create following results (first the
 
 #### TodaysMarket file
 ##### TodaysMarketConfiguration
+
 |id|YieldCurvesId|DiscountingCurvesId|...|SecuritiesId|...|
 |---|---|---|---|---|---|
 |collateral_eur|NULL|xois_eur|...|collateral_eur|...|
@@ -15,6 +16,7 @@ Mainly using the PATH flavour, I was able to create following results (first the
 
 SecuritiesId was filled in manually after the migration script has run, because the Example's TodaysMarket.xml doesn't contain the id in the configuration (explanation see below).
 ##### TodaysMarketYieldCurves
+
 |YieldCurve|name|id|
 |---|---|---|
 |Yield/EUR/BANK_EUR_BORROW|BANK_EUR_BORROW|default|
@@ -38,6 +40,7 @@ SecuritiesId was filled in manually after the migration script has run, because 
 Usually, the Row's name is made of the inner PATH directive (e.g. ```PATH ('YieldCurve')```), the content is namelessly created with a ```[data()]``` directive and the name attribute is passed usin ```[@name]```. With SwapIndexCurves there is an inner element called Discounting, which needs to be separated, so it is not being passed with the ```[data()]``` directive but as a normally named field.
 
 ##### TodaysMarketSwapIndexCurves
+
 |Discounting|name|id|
 |---|---|---|
 |CHF-TOIS|CHF-CMS-1Y|default|
