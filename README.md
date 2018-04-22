@@ -8,11 +8,11 @@ As a frequent user of [Quantlib](http://quantlib.org), I found that I needed to 
 
 I'm using the Opensource Risk Engine ([ORE](http://www.opensourcerisk.org), based on Quantlib), my intention is to provide Tools for easier interaction with/integration of the Opensource Risk Engine. Following three goals are envisaged:
 
-- [ ] easy starting from Excel (OreAddin in conjunction with OreMgr),
-- [x] loading and migrating ORE data from/to a Database (OreDB)
-- [ ] a SWIG wrapper (OreMgr) to allow starting ORE from .NET and other environments.
+- [ ]  easy starting from Excel (OreAddin in conjunction with OreMgr),
+- [x]  loading and migrating ORE data from/to a Database (OreDB)
+- [ ]  a SWIG wrapper (OreMgr) to allow starting ORE from .NET and other environments.
 
-All this will be available in: [https://github.com/rkapl123/OreControl](https://github.com/rkapl123/OreControl)
+All this will be available here: [ https://rkapl123.github.io/OreControl/]( https://rkapl123.github.io/OreControl/)
 
 ## DBAddin
 
