@@ -2,7 +2,8 @@ All repositories: [https://github.com/rkapl123](https://github.com/rkapl123)
 
 ## Quantlib fully annotated source documentation
 
-As a frequent user of [Quantlib](http://quantlib.org), I found that I needed to read more than the official reference documentation provided on the official website. So I decided to tweak the doxygen config to produce a fully annotated source documentation of quantlib including collaboration diagrams, call/caller diagrams and a working search box: [https://rkapl123.github.io/QLAnnotatedSource](https://rkapl123.github.io/QLAnnotatedSource)
+As a frequent user of [Quantlib](http://quantlib.org), I found that I needed to read more than the official reference documentation provided on the official website. 
+So I decided to tweak the doxygen config to produce a fully annotated source documentation of quantlib including collaboration diagrams, call/caller diagrams and a working search box: [https://rkapl123.github.io/QLAnnotatedSource](https://rkapl123.github.io/QLAnnotatedSource)
 
 ## OreControl
 
@@ -12,7 +13,7 @@ I'm using the Opensource Risk Engine ([ORE](http://www.opensourcerisk.org), base
 - [x]  loading and migrating ORE data from/to a Database (OreDB)
 - [ ]  a SWIG wrapper (OreMgr) to allow starting ORE from .NET and other environments.
 
-All this will be available here: [ https://rkapl123.github.io/OreControl/]( https://rkapl123.github.io/OreControl/)
+All this will be available here: [https://rkapl123.github.io/OreControl/]( https://rkapl123.github.io/OreControl/)
 
 ## DBAddin
 
@@ -47,7 +48,7 @@ ExchangeSetOOF logs in to the currently logged in users account (using EWS AutoD
 
 If any such appointment is found, ExchangeSetOOF replaces the template's date placeholder with the respective end date and (if wanted) also start date. The languages used for the replacement of the date placeholders are (hardcoded) german and english (easily changed at the top of the program). The automatic reply (out of office) is being scheduled to start from the Start Date of the OOF appointment and end on the End Date of the OOF appointment.
 
-Documentation and download available here: [https://github.com/rkapl123/ExchangeSetOOF](https://github.com/rkapl123/ExchangeSetOOF)
+Documentation and download available here: [https://rkapl123.github.io/ExchangeSetOOF](https://rkapl123.github.io/ExchangeSetOOF)
 
 ## other MS-Office based Addins
 
