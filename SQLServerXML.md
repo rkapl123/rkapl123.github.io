@@ -4,8 +4,8 @@ When I started writing XML queries for the ORE Database, following blog article 
 
 Mainly using the PATH flavour, I was able to create following results (first the partial queries, then the xml query and finally the result) for the ORE input:
 
-#### TodaysMarket file
-##### TodaysMarketConfiguration
+## TodaysMarket file
+### TodaysMarketConfiguration
 
 |id|YieldCurvesId|DiscountingCurvesId|...|SecuritiesId|...|
 |---|---|---|---|---|---|
@@ -15,7 +15,7 @@ Mainly using the PATH flavour, I was able to create following results (first the
 |libor|inccy_swap|inccy_swap|...|NULL|...|
 
 SecuritiesId was filled in manually after the migration script has run, because the Example's TodaysMarket.xml doesn't contain the id in the configuration (explanation see below).
-##### TodaysMarketYieldCurves
+### TodaysMarketYieldCurves
 
 |YieldCurve|name|id|
 |---|---|---|
@@ -39,7 +39,7 @@ SecuritiesId was filled in manually after the migration script has run, because 
 .... The other tables are skipped here, as the principle is always the same, except for the SwapIndexCurves.
 Usually, the Row's name is made of the inner PATH directive (e.g. ```PATH ('YieldCurve')```), the content is namelessly created with a ```[data()]``` directive and the name attribute is passed usin ```[@name]```. With SwapIndexCurves there is an inner element called Discounting, which needs to be separated, so it is not being passed with the ```[data()]``` directive but as a normally named field.
 
-##### TodaysMarketSwapIndexCurves
+### TodaysMarketSwapIndexCurves
 
 |Discounting|name|id|
 |---|---|---|
@@ -61,7 +61,7 @@ Security|name|id
 Security/SECURITY_1|SECURITY_1|collateral_eur
 Security/SECURITY_1|SECURITY_1|default
 
-##### FOR XML Query
+### FOR XML Query
 ```sql
 SELECT DISTINCT tmc.GroupingId,
 (SELECT
@@ -233,7 +233,7 @@ SELECT DISTINCT tmc.GroupingId,
 FROM TodaysMarketConfiguration tmc
 ```
 
-##### XML Result
+### XML Result
 ```xml
 <TodaysMarket>
 	<Configuration id="collateral_eur">
