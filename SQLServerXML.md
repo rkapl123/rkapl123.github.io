@@ -7,14 +7,13 @@ Mainly using the PATH flavour, I was able to create following results (first the
 ## TodaysMarket file
 ### TodaysMarketConfiguration
 
-|id|YieldCurvesId|DiscountingCurvesId|...|SecuritiesId|...|
-|---|---|---|---|---|---|
-|collateral_eur|NULL|xois_eur|...|collateral_eur|...|
-|collateral_inccy|ois|ois|...|NULL|...|
-|default|xois_eur|xois_eur|...|NULL|...|
-|libor|inccy_swap|inccy_swap|...|NULL|...|
+|id|YieldCurvesId|DiscountingCurvesId|...|...|
+|---|---|---|---|---|
+|collateral_eur|NULL|xois_eur|...|...|
+|collateral_inccy|ois|ois|...|...|
+|default|xois_eur|xois_eur|...|...|
+|libor|inccy_swap|inccy_swap|...|...|
 
-SecuritiesId was filled in manually after the migration script has run, because the Example's TodaysMarket.xml doesn't contain the id in the configuration (explanation see below).
 ### TodaysMarketYieldCurves
 
 |YieldCurve|name|id|
@@ -54,12 +53,12 @@ Usually, the Row's name is made of the inner PATH directive (e.g. ```PATH ('Yiel
 |USD-FedFunds|USD-CMS-1Y|default|
 |USD-FedFunds|USD-CMS-30Y|default|
 
-.... Again the rest of the tables are skipped, except for the Securities, because the "collateral_eur" entry for Securities was achieved by filling in the missing SecuritiesId in the TodaysMarketConfiguration table.
-This is required due to the query relying on the existence of the blocks configuration id the corresponding row of TodaysMarketConfiguration.
+.... Again the rest of the tables are skipped, except for the Securities, because this block and the BaseCorrelations are independent from the Configurations selected (all Securities and BaseCorrelations are available in TodaysMarket).
 
-Security|name|id
-Security/SECURITY_1|SECURITY_1|collateral_eur
-Security/SECURITY_1|SECURITY_1|default
+|Security|name|id|
+|---|---|---|
+|Security/SECURITY_1|SECURITY_1|collateral_eur|
+|Security/SECURITY_1|SECURITY_1|default|
 
 ### FOR XML Query
 ```sql
@@ -81,8 +80,7 @@ SELECT DISTINCT tmc.GroupingId,
 			DefaultCurvesId,
 			InflationCapFloorPriceSurfacesId,
 			EquityCurvesId,
-			EquityVolatilitiesId,
-			SecuritiesId
+			EquityVolatilitiesId
 		FROM TodaysMarketConfiguration WHERE GroupingId = tmc.GroupingId
 		FOR XML PATH ('Configuration'), TYPE),
 		(SELECT
@@ -218,7 +216,7 @@ SELECT DISTINCT tmc.GroupingId,
 				c.Security [data()]
 			FROM TodaysMarketSecurities c WHERE c.id = co.id
 			FOR XML PATH ('Security'), TYPE)
-		FROM (SELECT DISTINCT ISNULL(SecuritiesId,'default') id FROM TodaysMarketConfiguration WHERE GroupingId = tmc.GroupingId) co
+		FROM (SELECT DISTINCT id FROM TodaysMarketSecurities) co
 		FOR XML PATH ('Securities'), TYPE),
 		(SELECT
 			id [@id],
@@ -227,7 +225,7 @@ SELECT DISTINCT tmc.GroupingId,
 				c.BaseCorrelation [data()]
 			FROM TodaysMarketBaseCorrelations c WHERE c.id = co.id
 			FOR XML PATH ('BaseCorrelation'), TYPE)
-		FROM (SELECT DISTINCT ISNULL(BaseCorrelationsId,'default') id FROM TodaysMarketConfiguration WHERE GroupingId = tmc.GroupingId) co
+		FROM (SELECT DISTINCT id FROM TodaysMarketBaseCorrelations) co
 		FOR XML PATH ('BaseCorrelations'), TYPE)
 	FOR XML PATH('TodaysMarket'))) XMLData
 FROM TodaysMarketConfiguration tmc
@@ -403,9 +401,9 @@ FROM TodaysMarketConfiguration tmc
 		<EquityVolatility name="Lufthansa">EquityVolatility/EUR/Lufthansa</EquityVolatility>
 		<EquityVolatility name="SP5">EquityVolatility/USD/SP5</EquityVolatility>
 	</EquityVolatilities>
-  <Securities id="collateral_eur">
-    <Security name="SECURITY_1">Security/SECURITY_1</Security>
-  </Securities>
+	<Securities id="collateral_eur">
+		<Security name="SECURITY_1">Security/SECURITY_1</Security>
+	</Securities>
 	<Securities id="default">
 		<Security name="SECURITY_1">Security/SECURITY_1</Security>
 	</Securities>
