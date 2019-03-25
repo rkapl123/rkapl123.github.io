@@ -65,3 +65,8 @@ Following are links to pages with useful information I've collected during my en
 
 ### SQL Server XML generation
 With examples from the ORE DB project: [SQLServerXML](SQLServerXML.md)
+
+|Anrede|Name|Vorname1|Einschreib1|Ermäßigt1|Vorname2|Einschreib2|Ermäßigt2|...|
+|---|---|---|---|---|---|---|---|...|
+|Familie|Muster|Kain|J||Abel|J||...|
+|Familie|...|...|..|..|..|..||...|
