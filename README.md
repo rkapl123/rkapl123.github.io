@@ -63,7 +63,7 @@ flexible file and eventLog logging from MS-Office applications and VBScript: [ht
 
 Following are links to pages with useful information I've collected during my endeavors.
 
-### SQL Server XML generation
+### SQL Server XML Queries
 With examples from the ORE DB project: [SQLServerXML](SQLServerXML.md)
 
 ### Face-IDs for Office Versions >= 2010
