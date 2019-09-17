@@ -66,3 +66,38 @@ Following are links to pages with useful information I've collected during my en
 ### SQL Server XML generation
 With examples from the ORE DB project: [SQLServerXML](SQLServerXML.md)
 
+### FaceIds for Excel Versions >= 2010
+Following Code was adapted from John D. Mclean's code for Excel <= 2003:
+
+```vb.net
+Option Explicit
+Sub DisplayButtonFacesInGrid()
+Const cbName = "FaceId"
+Dim cBar As CommandBar, cBut As CommandBarControl
+Dim r As Long, c As Integer, count As Integer
+
+  count = 0
+  Do                          'loop through all FaceIDs
+    If count Mod 100 = 0 Then
+        On Error Resume Next
+        CommandBars(count \ 100 & cbName).Delete
+        On Error GoTo 0
+        Set cBar = CommandBars.Add    'create temporary ToolBar with one button
+        With cBar
+          .Name = count \ 100 & cbName
+          .Top = count \ 100
+          .Left = 0
+          .Visible = True
+          .RowIndex = count \ 100
+        End With
+    End If
+
+    Set cBut = CommandBars(count \ 100 & cbName).Controls.Add(Type:=msoControlButton)
+    cBut.FaceId = count
+    cBut.Caption = count
+    count = count + 1
+    Application.StatusBar = "Creating Button FaceIDs " & count
+  Loop While count < 4891 '4890 seems to be the maximum FaceID #
+  Application.StatusBar = ""
+End Sub
+```
