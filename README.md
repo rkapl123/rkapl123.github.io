@@ -66,8 +66,8 @@ Following are links to pages with useful information I've collected during my en
 ### SQL Server XML generation
 With examples from the ORE DB project: [SQLServerXML](SQLServerXML.md)
 
-### FaceIds for Excel Versions >= 2010
-Following Code was adapted from John D. Mclean's code for Excel <= 2003:
+### FaceIds for Office Versions >= 2010
+Following Code was adapted from John D. Mclean's code for Excel <= 2003 and displays all faceIDs available for commandbar buttons in the Add-Ins ribbon (this is a long list, change the 4891 (max. number for Office 2010) to your office version):
 
 ```vb.net
 Option Explicit
