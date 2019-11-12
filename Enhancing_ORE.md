@@ -4,6 +4,35 @@ Following is an overview on enhancing ORE with new instruments using the example
 We start bottom up (thinking in the libraries architecture), starting with Quantlib and ORE's Quantlib extension (QLE), 
 then enhancing the Data level (Market Data and Trade/Leg/Engine Representation) and ending with the Analytics layer.
 
+1. First Steps (QL, QLE)
+  1. add Instrument / Index / Coupon
+  2. add PricingEngine / CouponPricer
+  3. add TermStructure
+  4. extend CrossAssetModel (for XVA sim)
+
+2. Second Steps (ORED: Market Data)
+  1. add MarketDatum, extend MarketDatumParser
+  2. add CurveSpec, CurveConfig, Wrapper
+  3. extend Market interface, MarketImpl
+  4. extend TodaysMarket / TodaysMarketParameters
+  5. extend index parser
+
+3. Third Steps (ORED: Portfolio)
+  1. extend LegData
+  2. add Trade
+  3. add EngineBuilder, TradeBuilder, LegBuilder
+
+4. Fourth Steps (OREA: Simulation, Sensitivities)
+  1. extend Scenario
+  2. extend ScenarioSimMarket / ScenarioSimMarketParameters
+  3. extend CrossAssetModelScenarioGenerator (Data, Builder)
+  4. extend SensitivityScenarioGenerator, SensitivityScenarioData
+  5. extend StressScenarioGenerator, StressScenarioData
+  6. extend FixingManager
+
+5. Fifth Steps (Miscellaneous)
+  1. extend Curve Ordering
+
 ORE can usually be enhanced by adding separate code files, however in following instances an addition is required in existing code:
 
 * extend CrossAssetModel (for XVA simulation) in qle/models/crossassetmodel.?pp
@@ -23,35 +52,6 @@ ORE can usually be enhanced by adding separate code files, however in following 
   * extend StressScenarioGenerator + Data in orea/scenario/stressscenariogenerator.?pp, stressscenariodata.?pp (not in this example)
   * extend FixingManager in orea/simulation/fixingmanager.cpp (not in this example)
 
-
-- First Steps (QL, QLE)
-  1. add Instrument / Index / Coupon
-  2. add PricingEngine / CouponPricer
-  3. add TermStructure
-  4. extend CrossAssetModel (for XVA sim)
-
-- Second Steps (ORED: Market Data)
-  1. add MarketDatum, extend MarketDatumParser
-  2. add CurveSpec, CurveConfig, Wrapper
-  3. extend Market interface, MarketImpl
-  4. extend TodaysMarket / TodaysMarketParameters
-  5. extend index parser
-
-- Third Steps (ORED: Portfolio)
-  1. extend LegData
-  2. add Trade
-  3. add EngineBuilder, TradeBuilder, LegBuilder
-
-- Fourth Steps (OREA: Simulation, Sensitivities)
-  1. extend Scenario
-  2. extend ScenarioSimMarket / ScenarioSimMarketParameters
-  3. extend CrossAssetModelScenarioGenerator (Data, Builder)
-  4. extend SensitivityScenarioGenerator, SensitivityScenarioData
-  5. extend StressScenarioGenerator, StressScenarioData
-  6. extend FixingManager
-
-- Fifth Steps (Miscellaneous)
-  1. extend Curve Ordering
 
 # First Steps (QL, QLE)
 
