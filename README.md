@@ -5,7 +5,7 @@ All repositories: [https://github.com/rkapl123](https://github.com/rkapl123)
 As a frequent user of [Quantlib](http://quantlib.org), I found that I needed to read more than the official reference documentation provided on the official website. 
 So I decided to tweak the doxygen config to produce a fully annotated source documentation of quantlib including collaboration diagrams, call/caller diagrams and a working search box: [https://rkapl123.github.io/QLAnnotatedSource](https://rkapl123.github.io/QLAnnotatedSource)
 
-## OreControl
+## ORE and OreControl
 
 I'm using the Opensource Risk Engine ([ORE](http://www.opensourcerisk.org), based on Quantlib), my intention is to provide Tools for easier interaction with/integration of the Opensource Risk Engine. Following three goals are envisaged:
 
@@ -14,6 +14,8 @@ I'm using the Opensource Risk Engine ([ORE](http://www.opensourcerisk.org), base
 - [ ]  a SWIG wrapper (OreMgr) to allow starting ORE from .NET and other environments.
 
 All this will be available here: [https://rkapl123.github.io/OreControl/]( https://rkapl123.github.io/OreControl/)
+
+Following Article summarizes the [Enhancement of ORE with new instruments](Enhancing_ORE.md)
 
 ## DBAddin
 
