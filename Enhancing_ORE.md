@@ -6,22 +6,22 @@ then enhancing the Data level (Market Data and Trade/Leg/Engine Representation) 
 
 ORE can usually be enhanced by adding separate code files, however in following instances an addition is required in existing code:
 
-0. extend CrossAssetModel (for XVA simulation) in qle/models/crossassetmodel.?pp
-1. registering the new Coupon in PricerSetter, extending qle/cashflows/couponpricer.cpp
-2. add MarketDatum, extend MarketDatumParser, extending ored/marketdata/marketdatum.?pp and marketdatumparser.?pp (not in this example)
-3. add a CurveType and CurveSpec, extending ored/marketdata/curvespec.?pp and ored/marketdata/curvespecparser.cpp (not in this example)
-4. extend Market, MarketImpl in ored/marketdata/market.?pp and marketimpl.?pp (not in this example)
-5. extend TodaysMarket, TodaysMarketParameters in ored/marketdata/todaysmarket.?pp and todaysmarketparameters.?pp (not in this example)
-6. extend Index Parser in ored/utilities/indexparser.?pp (not in this example)
-7. add TradeBuilder in ored/portfolio/tradefactory.?pp (not in this example)
-8. registered the LegBuilder with the engine factory in ored/portfolio/enginefactory.cpp
-9. and all parts of the analytic layer, so
- - extend Scenario in orea/scenario/scenario.?pp (not in this example)
- - extend ScenarioSimMarket + Parameters in orea/scenario/scenariosimmarket.?pp and scenariosimmarketparameters.?pp (not in this example)
- - extend CAM Scenario Generator (Data, Builder) in orea/scenario/crossassetmodelscenariogenerator.?pp (not in this example)
- - extend SensitivityScenarioGenerator + Data in orea/scenario/sensitivityscenariogenerator.?pp, sensitivityscenariodata.?pp (not in this example)
- - extend StressScenarioGenerator + Data in orea/scenario/stressscenariogenerator.?pp, stressscenariodata.?pp (not in this example)
- - extend FixingManager in orea/simulation/fixingmanager.cpp (not in this example)
+* extend CrossAssetModel (for XVA simulation) in qle/models/crossassetmodel.?pp
+* registering the new Coupon in PricerSetter, extending qle/cashflows/couponpricer.cpp
+* add MarketDatum, extend MarketDatumParser, extending ored/marketdata/marketdatum.?pp and marketdatumparser.?pp (not in this example)
+* add a CurveType and CurveSpec, extending ored/marketdata/curvespec.?pp and ored/marketdata/curvespecparser.cpp (not in this example)
+* extend Market, MarketImpl in ored/marketdata/market.?pp and marketimpl.?pp (not in this example)
+* extend TodaysMarket, TodaysMarketParameters in ored/marketdata/todaysmarket.?pp and todaysmarketparameters.?pp (not in this example)
+* extend Index Parser in ored/utilities/indexparser.?pp (not in this example)
+* add TradeBuilder in ored/portfolio/tradefactory.?pp (not in this example)
+* registered the LegBuilder with the engine factory in ored/portfolio/enginefactory.cpp
+* and all parts of the analytic layer, so
+  * extend Scenario in orea/scenario/scenario.?pp (not in this example)
+  * extend ScenarioSimMarket + Parameters in orea/scenario/scenariosimmarket.?pp and scenariosimmarketparameters.?pp (not in this example)
+  * extend CAM Scenario Generator (Data, Builder) in orea/scenario/crossassetmodelscenariogenerator.?pp (not in this example)
+  * extend SensitivityScenarioGenerator + Data in orea/scenario/sensitivityscenariogenerator.?pp, sensitivityscenariodata.?pp (not in this example)
+  * extend StressScenarioGenerator + Data in orea/scenario/stressscenariogenerator.?pp, stressscenariodata.?pp (not in this example)
+  * extend FixingManager in orea/simulation/fixingmanager.cpp (not in this example)
 
 
 - First Steps (QL, QLE)
