@@ -60,7 +60,7 @@ ORE can usually be enhanced by adding separate code files, however in following 
 
 ### add your own Instrument:
   using existing Swap instrument here. In case you want to add your own Instrument, in addition of writing a QL/QLE instrument, 
-  you'd have to add a Trade Builder (see [here](#ORED:-add-trade))
+  you'd have to add a Trade Builder (see [here](#ored-add-trade))
 
 ### add your own Index: qle/indexes/swapspread3index.hpp and .cpp:
 
