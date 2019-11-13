@@ -750,7 +750,6 @@ Notice that this is inconsistent to a certain degree!
 # Second Steps (ORED: Market Data)
 
 ## ORED: add MarketDatum, extend MarketDatumParser
-
 Describes a single market datum, corresponds to one line in marketdata.txt in ored/marketdata/marketdatum.?pp and marketdatumparser.?pp
 We don't do anything right now, but we could
   - add an InstrumentType `CMS_SPREAD_OPTION`
@@ -782,7 +781,7 @@ We don't do anything right now, but we could ...
   - add a lookup implementation to MarketImpl
 
 ## ORED: extend TodaysMarket, TodaysMarketParameters
-Builds a T0 market, based on TodaysMarketParameters that reflects todaysmarket.xml in ored/marketdata/todaysmarket.?pp and todaysmarketparameters.?pp.
+Builds a T_0 market, based on TodaysMarketParameters that reflects todaysmarket.xml in ored/marketdata/todaysmarket.?pp and todaysmarketparameters.?pp.
 We don't do anything right now, but we could ... 
   - add the building of CMS Correlation Termstructures and
   - the corresponding todays market parameters
@@ -984,13 +983,13 @@ Leg makeCMSSpread3Leg(const LegData& data,
 CMSSpreadData describes the leg, as it is specified in XML, makeCMSSpreadLeg builds the actual QL Leg, this is called from the leg builder (see below).
 
 ## ORED: add Trade
-Existing examples in ored/portfolio...
+Existing examples in ored/portfolio...  
 This is only needed if a new Trade Type should be added, i.e. we can skip it as we just extend legs.
 Represents the trade as specified in XML and uses Components like Envelope, LegData, TradeActions etc., and own data.
 It builds the actual ORE instrument that wraps the QL trade using an engine builder and a trade builder.
 
 ## ORED: add TradeBuilder
-Done in ored/portfolio/tradefactory.cpp
+Done in ored/portfolio/tradefactory.cpp  
 builds a `boost::shared_ptr` to a trade and is registered with the TradeFactory with the trade type string, 
 either modified in `TradeFactory::TradeFactory()` (`addBuilder("YourInstrument", boost::make_shared<TradeBuilder<YourInstrument>>());`), 
 or alternatively you could use the addExtraBuilders method and override getExtraTradeBuilders in orea/app/oreapp.hpp `OREApp::getExtraTradeBuilders()`
@@ -1129,14 +1128,11 @@ CmsSpread3CouponPricerBuilder::engineImpl(const Currency& ccy,
 # Fourth Steps (OREA: Simulation, Sensitivities)
 
 ###  OREA: extend Scenario
-Holds a market data scenario (RiskFactorKey &#8594; Real)
-Done in orea/scenario/scenario.?pp
-Needed for sensitivities / stress and xva simulation
+Holds a market data scenario (RiskFactorKey &#8594; Real), done in orea/scenario/scenario.?pp, needed for sensitivities / stress and xva simulation.  
 We don't do anything right now, but when CMS Correlation is a market datum we should add it to the RiskFactorKey KeyType.
 
 ## OREA: ScenarioSimMarket + Parameters
-Holds a simulation market used for XVA and sensitivities / stress.
-Done in orea/scenario/scenariosimmarket.?pp and scenariosimmarketparameters.?pp
+Holds a simulation market used for XVA and sensitivities / stress, done in orea/scenario/scenariosimmarket.?pp and scenariosimmarketparameters.?pp  
 Initially takes a copy from today's market, then applies scenarios.
 Distinguishes non-simulated (xva) and simulated (xva, sensitivity/stress) factors.
 Non-simulated means, there are no scenario required to evolve a factor, it's done on the fly.
@@ -1144,21 +1140,18 @@ Not needed now, but CMS Correlation should be added later and for CMS the whole 
 ScenarioSimMarketParameters correspond to simulation.xml, Market section.
 
 ## OREA: extend CAM Scenario Generator (Data, Builder)
-Generates scenarios using the Cross Asset Model.
-Done in orea/scenario/crossassetmodelscenariogenerator.?pp
+Generates scenarios using the Cross Asset Model, done in orea/scenario/crossassetmodelscenariogenerator.?pp  
 Is required for simulate-able factors only and in general will generate model implied scenarios.
 Not really interesting for CMS Correlation unless we add a multifactor IR model to the CAM, then we need to extend ored/model/crossassetmodeldata.?pp 
 and crossassetmodelbuilder.?pp as well.
 CAM Data corresponds to simulation.xml, CrossAssetModel section.
 
 ## OREA: extend SensitivityScenarioGenerator + Data
-Generates scenarios for scenario analysis.
-Done in orea/scenario/sensitivityscenariogenerator.?pp, sensitivityscenariodata.?pp
+Generates scenarios for scenario analysis, done in orea/scenario/sensitivityscenariogenerator.?pp, sensitivityscenariodata.?pp  
 Requires simulate-able factors and would be required if we want to compute sensitivites w.r.t. CMS correlations (later)
 
 ## OREA: extend StressScenarioGenerator + Data
-Generates scenarios for stress analysis.
-Done in orea/scenario/stressscenariogenerator.?pp, stressscenariodata.?pp
+Generates scenarios for stress analysis, done in orea/scenario/stressscenariogenerator.?pp, stressscenariodata.?pp  
 Requires simulate-able factors and would be required if we want to compute stress scenarios w.r.t. CMS correlations (later)
   
 ##  OREA: extend FixingManager
@@ -1243,7 +1236,6 @@ void FixingManager::initialise(const boost::shared_ptr<Portfolio>& portfolio) {
 # Fifth Steps (Miscellaneous)
 
 ## Curve Ordering
-
   - builds a dependency graph between term structures to be built
   - currently only for yield curves, all other curve types are sorted "blockwise"
   - if more complicated dependencies are introduced, this would need generalisation
