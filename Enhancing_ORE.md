@@ -1,7 +1,7 @@
 # Enhancing ORE
 
 Following is an overview on enhancing ORE with new instruments using the example of CMS Spread Structured Swaps with three market variables.
-We start bottom up (thinking in the libraries architecture), starting with Quantlib and ORE's Quantlib extension (QLE), 
+We start bottom up (in the libraries layers), starting with Quantlib and ORE's Quantlib extension (QLE), 
 then enhancing the Data level (Market Data and Trade/Leg/Engine Representation) and ending with the Analytics layer.
 
 1. First Steps (QL, QLE)
@@ -35,22 +35,21 @@ then enhancing the Data level (Market Data and Trade/Leg/Engine Representation) 
 
 ORE can usually be enhanced by adding separate code files, however in following instances an addition is required in existing code:
 
-* extend CrossAssetModel (for XVA simulation) in qle/models/crossassetmodel.?pp
-* registering the new Coupon in PricerSetter, extending qle/cashflows/couponpricer.cpp
-* add MarketDatum, extend MarketDatumParser, extending ored/marketdata/marketdatum.?pp and marketdatumparser.?pp (not in this example)
-* add a CurveType and CurveSpec, extending ored/marketdata/curvespec.?pp and ored/marketdata/curvespecparser.cpp (not in this example)
+* extend CrossAssetModel (for XVA simulation) in qle/models/crossassetmodel.?pp (not in this example)
+* register the new Coupon in PricerSetter, modifying qle/cashflows/couponpricer.cpp
+* add MarketDatum, extend MarketDatumParser, modifying ored/marketdata/marketdatum.?pp and marketdatumparser.?pp (not in this example)
+* add a CurveType and CurveSpec, modifying ored/marketdata/curvespec.?pp and ored/marketdata/curvespecparser.cpp (not in this example)
 * extend Market, MarketImpl in ored/marketdata/market.?pp and marketimpl.?pp (not in this example)
 * extend TodaysMarket, TodaysMarketParameters in ored/marketdata/todaysmarket.?pp and todaysmarketparameters.?pp (not in this example)
 * extend Index Parser in ored/utilities/indexparser.?pp (not in this example)
-* add TradeBuilder in ored/portfolio/tradefactory.?pp (not in this example)
-* registered the LegBuilder with the engine factory in ored/portfolio/enginefactory.cpp
-* and all parts of the analytic layer, so
-  * extend Scenario in orea/scenario/scenario.?pp (not in this example)
-  * extend ScenarioSimMarket + Parameters in orea/scenario/scenariosimmarket.?pp and scenariosimmarketparameters.?pp (not in this example)
-  * extend CAM Scenario Generator (Data, Builder) in orea/scenario/crossassetmodelscenariogenerator.?pp (not in this example)
-  * extend SensitivityScenarioGenerator + Data in orea/scenario/sensitivityscenariogenerator.?pp, sensitivityscenariodata.?pp (not in this example)
-  * extend StressScenarioGenerator + Data in orea/scenario/stressscenariogenerator.?pp, stressscenariodata.?pp (not in this example)
-  * extend FixingManager in orea/simulation/fixingmanager.cpp (not in this example)
+* add a TradeBuilder in ored/portfolio/tradefactory.cpp (not in this example)
+* register the LegBuilder with the engine factory in ored/portfolio/enginefactory.cpp
+* extend Scenario in orea/scenario/scenario.?pp (not in this example)
+* extend ScenarioSimMarket + Parameters in orea/scenario/scenariosimmarket.?pp and scenariosimmarketparameters.?pp (not in this example)
+* extend CAM Scenario Generator (Data, Builder) in orea/scenario/crossassetmodelscenariogenerator.?pp (not in this example)
+* extend SensitivityScenarioGenerator + Data in orea/scenario/sensitivityscenariogenerator.?pp, sensitivityscenariodata.?pp (not in this example)
+* extend StressScenarioGenerator + Data in orea/scenario/stressscenariogenerator.?pp, stressscenariodata.?pp (not in this example)
+* extend FixingManager in orea/simulation/fixingmanager.cpp (not in this example)
 
 
 # First Steps (QL, QLE)
@@ -60,8 +59,9 @@ ORE can usually be enhanced by adding separate code files, however in following 
   or ...
 
 ### add your own Instrument:
-  using existing Swap instrument here.
-  
+  using existing Swap instrument here. In case you want to add your own Instrument, in addition of writing a QL/QLE instrument, 
+  you'd have to add a Trade Builder (see [here](#ORED:-add-trade))
+
 ### add your own Index: qle/indexes/swapspread3index.hpp and .cpp:
 
 ```cpp
@@ -743,7 +743,7 @@ Ideally we should have a correlation term structure, this should support maturit
 Straightforward to implement, but for the time being we will treat the implied correlation as a model parameter, thus no term structure is  required.
 
 ## QL: extend CrossAssetModel (for XVA simulation)
-The existing cross asset model implies perfect correlation between CMS rates, we could possibly extend the IR component in qle\models\crossassetmodel.?pp so that it can be calibrated to market prices 
+The existing cross asset model implies perfect correlation between CMS rates, we could possibly extend the IR component in qle/models/crossassetmodel.?pp so that it can be calibrated to market prices 
 for cms spread options, but for the moment we skip this and use our fixed, external implied correlation for simulation.
 Notice that this is inconsistent to a certain degree!
 
@@ -753,46 +753,46 @@ Notice that this is inconsistent to a certain degree!
 
 Describes a single market datum, corresponds to one line in marketdata.txt in ored/marketdata/marketdatum.?pp and marketdatumparser.?pp
 We don't do anything right now, but we could
-  - ...add an InstrumentType `CMS_SPREAD_OPTION`
-  - ...add a QuoteType `IMPLIED_CORRELATION`
-  - ...add a CmsSpreadOptionQuote with maturity, strike dimensions, ccy, for types `IMPLIED_CORRELATION` and `PRICE`
-  - ...extend `parseMarketDatum()` in ored/marketdata/marketdatumparser.cpp so that it recognises the new quotes
+  - add an InstrumentType `CMS_SPREAD_OPTION`
+  - add a QuoteType `IMPLIED_CORRELATION`
+  - add a CmsSpreadOptionQuote with maturity, strike dimensions, ccy, for types `IMPLIED_CORRELATION` and `PRICE`
+  - extend `parseMarketDatum()` in ored/marketdata/marketdatumparser.cpp so that it recognises the new quotes
 
 ## ORED: add CurveSpec
 Defines the "label" for a curve, e.g. `CmsCorrelation/EUR/EUR_Impl_Corr(type/ccy/curveID)` in ored/marketdata/curvespec.?pp
 We don't do anything right now, but we could
-  - ...add a CurveType CmsCorrelation
-  - ...add a CurveSpec CmsCorrelationSpec
-  - ...extend `parseCurveSpec()` in ored/marketdata/curvespecparser.cpp to handle the new curve type
+  - add a CurveType CmsCorrelation
+  - add a CurveSpec CmsCorrelationSpec
+  - extend `parseCurveSpec()` in ored/marketdata/curvespecparser.cpp to handle the new curve type
 
 ## ORED: add CurveConfig
 Holds the details of the curve configuration, reads it from and writes to XML, provides the quotes used for the curve in ored/configuration/<>curveconfig.?pp
 We don't do anything right now, but we could
-  - ...add a CmsCorrelationCurveConfig
+  - add a CmsCorrelationCurveConfig
 
 ## ORED: add Wrapper
 Takes the spec, config, market data and builds the actual QL term structure in ored/marketdata/<>curve.?pp
 We don't do anything right now, but we could ... 
-  - ...add a CmsCorrelationCurve
+  - add a CmsCorrelationCurve
 
 ## ORED: extend Market, MarketImpl
 Interface to retrieve QL term structures, plus "standard" implementation in ored/marketdata/market.?pp and marketimpl.?pp.
 We don't do anything right now, but we could ... 
-  - ...add `cmsCorrelation(const string\& ccy, const string\& config)`
-  - ...add a lookup implementation to MarketImpl
+  - add `cmsCorrelation(const string& ccy, const string& config)`
+  - add a lookup implementation to MarketImpl
 
 ## ORED: extend TodaysMarket, TodaysMarketParameters
 Builds a T0 market, based on TodaysMarketParameters that reflects todaysmarket.xml in ored/marketdata/todaysmarket.?pp and todaysmarketparameters.?pp.
 We don't do anything right now, but we could ... 
-  - ...add the building of CMS Correlation Termstructures and
-  - ...the corresponding todays market parameters
+  - add the building of CMS Correlation Termstructures and
+  - the corresponding todays market parameters
 
 ## ORED: extend Index Parser
 Builds QL indices from strings in ored/utilities/indexparser.?pp.
 We don't need that for cms spread indices, because we will build them from CMS indices on the fly, but in general ... 
-  - ... new "native" (i.e. not composed) index types require support by an index parser 
-  - ... the index parser is called from the fixings loader
-  - ... indices are either directly available via the market interface (Ibor, CMS, ZeroInflation), or constructed on the fly (FX, Equity)
+  - new "native" (i.e. not composed) index types require support by an index parser 
+  - the index parser is called from the fixings loader
+  - indices are either directly available via the market interface (Ibor, CMS, ZeroInflation), or constructed on the fly (FX, Equity)
 
 # Third Steps (ORED: Portfolio)
 
@@ -984,15 +984,16 @@ Leg makeCMSSpread3Leg(const LegData& data,
 CMSSpreadData describes the leg, as it is specified in XML, makeCMSSpreadLeg builds the actual QL Leg, this is called from the leg builder (see below).
 
 ## ORED: add Trade
-Done in ored/portfolio/
+Existing examples in ored/portfolio...
 This is only needed if a new Trade Type should be added, i.e. we can skip it as we just extend legs.
 Represents the trade as specified in XML and uses Components like Envelope, LegData, TradeActions etc., and own data.
-It builds the actual ORE instrument that wraps the QL trade using an engine builder
+It builds the actual ORE instrument that wraps the QL trade using an engine builder and a trade builder.
 
 ## ORED: add TradeBuilder
-Done in ored/portfolio/tradefactory.?pp
+Done in ored/portfolio/tradefactory.cpp
 builds a `boost::shared_ptr` to a trade and is registered with the TradeFactory with the trade type string, 
-either in `TradeFactory::TradeFactory()` or `OREApp::getExtraTradeBuilders()`
+either modified in `TradeFactory::TradeFactory()` (`addBuilder("YourInstrument", boost::make_shared<TradeBuilder<YourInstrument>>());`), 
+or alternatively you could use the addExtraBuilders method and override getExtraTradeBuilders in orea/app/oreapp.hpp `OREApp::getExtraTradeBuilders()`
 Pure Boilerplate Code, no business logic whatsoever present.
 
 ## ORED: add LegBuilder
@@ -1038,6 +1039,7 @@ Leg CMSSpread3LegBuilder::buildLeg(const LegData& data,
 ```
 
 ### The LegBuilder is registered with the engine factory in ored/portfolio/enginefactory.cpp
+Alternatively you could use the addExtraBuilders method and override getExtraEngineBuilders() and getExtraLegBuilders() in orea/app/oreapp.hpp
 
 ```cpp
 void EngineFactory::addDefaultBuilders() {
