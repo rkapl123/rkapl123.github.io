@@ -992,7 +992,7 @@ It builds the actual ORE instrument that wraps the QL trade using an engine buil
 Done in ored/portfolio/tradefactory.cpp  
 builds a `boost::shared_ptr` to a trade and is registered with the TradeFactory with the trade type string, 
 either modified in `TradeFactory::TradeFactory()` (`addBuilder("YourInstrument", boost::make_shared<TradeBuilder<YourInstrument>>());`), 
-or alternatively you could use the addExtraBuilders method and override getExtraTradeBuilders in orea/app/oreapp.hpp `OREApp::getExtraTradeBuilders()`
+or alternatively you could use the addExtraBuilders method and override getExtraTradeBuilders in orea/app/oreapp.hpp (called in `OREApp::getExtraTradeBuilders()`)
 Pure Boilerplate Code, no business logic whatsoever present.
 
 ## ORED: add LegBuilder
@@ -1038,7 +1038,7 @@ Leg CMSSpread3LegBuilder::buildLeg(const LegData& data,
 ```
 
 ### The LegBuilder is registered with the engine factory in ored/portfolio/enginefactory.cpp
-Alternatively you could use the addExtraBuilders method and override getExtraEngineBuilders() and getExtraLegBuilders() in orea/app/oreapp.hpp
+Alternatively you could use the addExtraBuilders method and override getExtraEngineBuilders() and getExtraLegBuilders() in orea/app/oreapp.hpp (called in `OREApp::buildEngineFactory`)
 
 ```cpp
 void EngineFactory::addDefaultBuilders() {
