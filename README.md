@@ -56,7 +56,7 @@ Documentation and download available here: [https://rkapl123.github.io/ExchangeS
 
 Excel Addin that allows you to parse Excel's Cmdline and start any Macro that is contained either inside the started Workbook, a startup loaded Addin or outside.  
 
-Additionally, a logging possibility is provided by retrieving a logger object in VBA (set log = CreateObject("CmdLogAddin.Logger")) and using this to
+Additionally, a logging possibility is provided by retrieving a logger object in VBA (set log = CreateObject("LogAddin.Logger")) and using this to
 provide logging messages using 5 levels:  
 
 - log.Fatal (like log.Error but quits Excel)
