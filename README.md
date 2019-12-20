@@ -52,9 +52,22 @@ If any such appointment is found, ExchangeSetOOF replaces the template's date pl
 
 Documentation and download available here: [https://rkapl123.github.io/ExchangeSetOOF](https://rkapl123.github.io/ExchangeSetOOF)
 
-## other MS-Office based Addins
+## CmdLogAddin
 
-Following Addins are available (only for 32-bit Office installations due to VB6/COM implementation):
+Excel Addin that allows you to parse Excel's Cmdline and start any Macro that is contained either inside the started Workbook, a startup loaded Addin or outside.  
+
+Additionally, a logging possibility is provided by retrieving a logger object in VBA (set log = CreateObject("CmdLogAddin.Logger")) and using this to
+provide logging messages using 5 levels:  
+
+- log.Fatal (like log.Error but quits Excel)
+- log.Error (also can send Mails, if desired)
+- log.Warn
+- log.Info
+- log.Debug
+
+Documentation and download available here: [https://rkapl123.github.io/CmdLogAddin](https://rkapl123.github.io/CmdLogAddin)
+
+The old versions of the Cmd Following Addins are still available (only for 32-bit Office installations due to VB6/COM implementation):  
 
 ### CMD-Line parser Add-In
 Command Argument processing for Excel, Word and Powerpoint to allow (almost) headless starting VB-Macros: [https://sourceforge.net/projects/officegoodies/files/CmdArgs](https://sourceforge.net/projects/officegoodies/files/CmdArgs)
