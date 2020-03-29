@@ -4,6 +4,8 @@ When I started writing XML queries for the ORE Database, following blog article 
 
 Mainly using the PATH flavour, I was able to create following results (first the partial queries, then the xml query and finally the result) for the ORE input:
 
+checkhotlink:(https://pfadfinder-gablitz.at/wp-content/uploads/photo-gallery/Gablitz-Lillie-Schwarz-3-300x268.png)
+
 ## TodaysMarket file
 ### TodaysMarketConfiguration
 
