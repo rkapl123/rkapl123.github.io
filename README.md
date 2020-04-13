@@ -25,7 +25,7 @@ DBAddin is an ExcelDNA-based Addin, providing two main functionalities and a def
 
 - Userdefined functions (DBFuncs) for database querying. This is opposed to the integrated MS-Query, which is stored statically in the worksheet and has serious limitations in terms of querying possibilities and constructing parameterized queries (MS-Query allows parameterized queries only for simple queries that can be displayed graphically). Further useful functions for working with database data are included as well.
 - Modify Database data in Excel using so called "DBModifiers", which are either datatables that enable you to manipulate database data directly inside Excel (DBMappers, similar to MS Access table view). Another method are DBActions, allowing DML code to be issued (insert/update/delete) and finally DBSequences that put DBMappers and DBActions together, additionally allowing refreshing of DB functions and defining a transactional context (Begin and Commit/Rollback).
-- As a useful "leftover" of the old DBSheets (DBSheets are used for DBMappers, additionally defining foreign key lookup resolutions for foreign keys, so columns containing foreign IDs can be edited more easily), the legacy DBSheet definitions can be edited/created with a DBSheet Creation tool and assigned to Worksheets with the DBSheet Assign tool.
+- As a useful "leftover" of the old DBSheets (DBSheets definitions are now used for DBMappers, additionally defining foreign key lookup resolutions for foreign keys, so columns containing foreign IDs can be edited more easily), legacy DBSheet definitions can be edited/created with the "Create DBSheet definition" tool and afterwards assigned to Worksheets with the "Assign DBSheet definition" tool.
 
 Documentation: [https://rkapl123.github.io/DBAddin/](https://rkapl123.github.io/DBAddin/)
 
@@ -68,11 +68,12 @@ Command Argument processing for Excel, Word and Powerpoint to allow (almost) hea
 ### Log-Addin
 flexible file and eventLog logging from MS-Office applications and VBScript: [https://sourceforge.net/projects/officegoodies/files/LogAddin/1.0.2/LogAddinSetup.1.0.2.msi/download](https://sourceforge.net/projects/officegoodies/files/LogAddin/1.0.2/LogAddinSetup.1.0.2.msi/download)
 
-## useful tips
+## Useful Tips
 
-Following are links to pages with useful information I've collected during my endeavors.
+Following are links to pages with useful information I've collected during my endeavors:
+
 ### Excel-DNA
-Of course, for creating Excel Addins/Solutions, this is a tool/library you just can't bypass: http://excel-dna.net/
+For creating Excel Addins/Solutions, this is a tool/library you simply can't bypass: [http://excel-dna.net/](http://excel-dna.net/)
 
 ### SQL Server XML Queries
 With examples from the ORE DB project: [SQLServerXML](SQLServerXML.md)
