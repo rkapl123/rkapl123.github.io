@@ -21,28 +21,20 @@ Following Article summarizes the [Enhancement of ORE with new instruments](Enhan
 
 ## DBAddin
 
-DBAddin (the current working version being a legacy VB6 COM Addin) is an Excel-Addin, providing two main functions:
+DBAddin is an ExcelDNA-based Addin, providing two main functionalities and a definition Tool:
 
-- Userdefined functions (DBFuncs) for database querying. This is opposed to the integrated MS-Query, which is stored statically in the worksheet and has serious limitations in terms of querying possibilities and constructing parameterized queries (MS-Query allows parameterized queries only for simple queries that can be displayed graphically). Also included is a possibility for filling "data bound" controls (ComboBoxes and Listboxes) with data from queries. Further useful functions for working with database data are included as well.
+- Userdefined functions (DBFuncs) for database querying. This is opposed to the integrated MS-Query, which is stored statically in the worksheet and has serious limitations in terms of querying possibilities and constructing parameterized queries (MS-Query allows parameterized queries only for simple queries that can be displayed graphically). Further useful functions for working with database data are included as well.
+- Modify Database data in Excel using so called "DBModifiers", which are either datatables that enable you to manipulate database data directly inside Excel (DBMappers, similar to MS Access table view). Another method are DBActions, allowing DML code to be issued (insert/update/delete) and finally DBSequences that put DBMappers and DBActions together, additionally allowing refreshing of DB functions and defining a transactional context (Begin and Commit/Rollback).
+- As a useful "leftover" of the old DBSheets (DBSheets are used for DBMappers, additionally defining foreign key lookup resolutions for foreign keys, so columns containing foreign IDs can be edited more easily), the legacy DBSheet definitions can be edited/created with a DBSheet Creation tool and assigned to Worksheets with the DBSheet Assign tool.
 
-- Edit Database data directly in Excel using so called "DBSheets", which are special Excel worksheets that enable you to manipulate database data directly inside Excel (similar to MS Access table view). In DBSheets you can define a foreign key lookup resolution for foreign keys, so columns containing foreign IDs can be edited more easily. Another feature is the "jumping" to a referenced record in a foreign dependent table, if it's defined as a DBSheet in the same Workbook.
-
-A small, but useful additional database filling and updating tool is the "Mapper", which you can use to send an Excel range to the Database, updating/inserting the content into the table(s) given as arguments.
-
-DBAddin is still hosted on [https://sourceforge.net/projects/dbaddin](https://sourceforge.net/projects/dbaddin), to get the latest version download a tarball with the [snapshot facility in sourceforge](https://sourceforge.net/p/dbaddin/code/HEAD/tarball).
-
-To install this, run dbaddin-code-2/install/install.cmd as administrator. To configure your environment, edit dbaddin-code-2/install/DBAddinSettings.reg before.
-
-The full documentation of DBAddin is available online at [http://dbaddin.sourceforge.net/HelpFrameset.htm](http://dbaddin.sourceforge.net/HelpFrameset.htm)
-
-I'm in the process of rewriting this as a Excel-DNA Based .NET Addin, being available at [https://github.com/rkapl123/DBAddin](https://github.com/rkapl123/DBAddin).
+Documentation: [https://rkapl123.github.io/DBAddin/](https://rkapl123.github.io/DBAddin/)
 
 ## RAddin
 
-Raddin is a simple Excel-DNA based Add-in for handling R-scripts from Excel via shell or RdotNet, storing input objects (scalars/vectors/matrices)
+Raddin is a simple ExcelDNA-based Add-in for handling R-scripts from Excel via shell or RdotNet, storing input objects (scalars/vectors/matrices)
 and retrieving result objects (scalars/vectors/matrices) as text files (currently restricted to tab separated) or RdotNet objects.
 Graphics are retrieved from produced png files into Excel to be displayed as diagrams.  
-For the full documentation see: [https://rkapl123.github.io/RAddin](https://rkapl123.github.io/RAddin)
+Documentation: [https://rkapl123.github.io/RAddin](https://rkapl123.github.io/RAddin)
 
 ## ExchangeSetOOF
 
@@ -56,7 +48,7 @@ Documentation and download available here: [https://rkapl123.github.io/ExchangeS
 
 ## CmdLogAddin
 
-Excel Addin that allows you to parse Excel's Cmdline and start any Macro that is contained either inside the started Workbook, a startup loaded Addin or outside.  
+ExcelDNA-based Addin that allows you to parse Excel's Cmdline and start any Macro that is contained either inside the started Workbook, a startup loaded Addin or outside.  
 
 Additionally, a logging possibility is provided by retrieving a logger object in VBA (set log = CreateObject("LogAddin.Logger")) and using this to
 provide logging messages using 5 levels:  
@@ -79,6 +71,8 @@ flexible file and eventLog logging from MS-Office applications and VBScript: [ht
 ## useful tips
 
 Following are links to pages with useful information I've collected during my endeavors.
+### Excel-DNA
+Of course, for creating Excel Addins/Solutions, this is a tool/library you just can't bypass: http://excel-dna.net/
 
 ### SQL Server XML Queries
 With examples from the ORE DB project: [SQLServerXML](SQLServerXML.md)
