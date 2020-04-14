@@ -112,4 +112,22 @@ Dim r As Long, c As Integer, count As Integer
   Loop While count < 4891 '4890 seems to be the maximum FaceID #
   Application.StatusBar = ""
 End Sub
+
+' to get rid of all the command bars added to the Add-Ins ribbon, run the following procedure
+Sub RemoveAddedCommandBars()
+Const cbName = "FaceId"
+Dim count As Integer
+
+  count = 0
+  Do                          'loop through all FaceIDs
+    If count Mod 100 = 0 Then
+        On Error Resume Next
+        Application.CommandBars(count \ 100 & cbName).Delete
+        On Error GoTo 0
+    End If
+    count = count + 1
+  Loop While count < 4891 '4890 seems to be the maximum FaceID #
+End Sub
+
 ```
+
