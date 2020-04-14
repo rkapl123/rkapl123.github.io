@@ -92,9 +92,9 @@ Dim r As Long, c As Integer, count As Integer
   Do                          'loop through all FaceIDs
     If count Mod 100 = 0 Then
         On Error Resume Next
-        CommandBars(count \ 100 & cbName).Delete
+        Application.CommandBars(count \ 100 & cbName).Delete
         On Error GoTo 0
-        Set cBar = CommandBars.Add    'create temporary ToolBar with one button
+        Set cBar = Application.CommandBars.Add    'create temporary ToolBar with one button
         With cBar
           .Name = count \ 100 & cbName
           .Top = count \ 100
@@ -104,7 +104,7 @@ Dim r As Long, c As Integer, count As Integer
         End With
     End If
 
-    Set cBut = CommandBars(count \ 100 & cbName).Controls.Add(Type:=msoControlButton)
+    Set cBut = Application.CommandBars(count \ 100 & cbName).Controls.Add(Type:=msoControlButton)
     cBut.FaceId = count
     cBut.Caption = count
     count = count + 1
