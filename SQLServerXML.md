@@ -3,9 +3,6 @@
 When I started writing XML queries for the ORE Database, following blog article was really helpful: [https://www.red-gate.com/simple-talk/sql/learn-sql-server/using-the-for-xml-clause-to-return-query-results-as-xml/](https://www.red-gate.com/simple-talk/sql/learn-sql-server/using-the-for-xml-clause-to-return-query-results-as-xml/)
 
 Mainly using the PATH flavour, I was able to create following results (first the partial queries, then the xml query and finally the result) for the ORE input:
-
-checkhotlink:(https://pfadfinder-gablitz.at/wp-content/uploads/photo-gallery/Gablitz-Lillie-Schwarz-3-300x268.png)
-
 ## TodaysMarket file
 ### TodaysMarketConfiguration
 
