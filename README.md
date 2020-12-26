@@ -1,6 +1,6 @@
 [![License](https://img.shields.io/github/license/rkapl123/rkapl123.github.io.svg)](https://github.com/rkapl123/rkapl123.github.io/blob/master/LICENSE)
 
-All repositories: [https://github.com/rkapl123](https://github.com/rkapl123)
+[Github Overview](https://github.com/rkapl123), [All repositories](https://github.com/rkapl123?tab=repositories)
 
 ## Quantlib fully annotated source documentation
 
@@ -67,6 +67,10 @@ The old versions of the Cmd Following Addins are still available (only for 32-bi
 Command Argument processing for Excel, Word and Powerpoint to allow (almost) headless starting VB-Macros: [https://sourceforge.net/projects/officegoodies/files/CmdArgs](https://sourceforge.net/projects/officegoodies/files/CmdArgs)
 ### Log-Addin
 flexible file and eventLog logging from MS-Office applications and VBScript: [https://sourceforge.net/projects/officegoodies/files/LogAddin/1.0.2/LogAddinSetup.1.0.2.msi/download](https://sourceforge.net/projects/officegoodies/files/LogAddin/1.0.2/LogAddinSetup.1.0.2.msi/download)
+
+## Data-XLSX-Parser
+
+A really nice, fast and memory efficient parser for new-format Excel (xlsx) files. The [CPAN-Module](https://metacpan.org/pod/Data::XLSX::Parser) however seems to be abandoned, so I decided to fix some problems and add production necessary code.
 
 ## Useful Tips
 
