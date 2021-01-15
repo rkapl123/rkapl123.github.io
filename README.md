@@ -71,7 +71,7 @@ flexible file and eventLog logging from MS-Office applications and VBScript: [ht
 
 ## Data-XLSX-Parser
 
-A really nice, fast and memory efficient parser for new-format Excel (xlsx) files. The [CPAN-Module](https://metacpan.org/pod/Data::XLSX::Parser) however seems to be abandoned, so I decided to fix some problems and add production necessary code.
+A really nice, fast and memory efficient parser for new-format Excel (xlsx) files. The official [CPAN-Module](https://metacpan.org/pod/Data::XLSX::Parser) hasn't yet got the fixes for production readiness.
 
 ## Useful Tips
 
