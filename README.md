@@ -3,12 +3,10 @@
 [Github Overview](https://github.com/rkapl123), [All repositories](https://github.com/rkapl123?tab=repositories)
 
 ## Quantlib fully annotated source documentation
-
 As a frequent user of [Quantlib](http://quantlib.org), I found that I needed to read more than the official reference documentation provided on the official website. 
 So I decided to tweak the doxygen config to produce a fully annotated source documentation of quantlib including collaboration diagrams, call/caller diagrams and a working search box: [https://rkapl123.github.io/QLAnnotatedSource](https://rkapl123.github.io/QLAnnotatedSource)
 
 ## ORE and OreControl
-
 I'm using the Opensource Risk Engine ([ORE](http://www.opensourcerisk.org), based on Quantlib), my intention is to provide Tools for easier interaction with/integration of the Opensource Risk Engine. Following three goals are envisaged:
 
 - [ ]  easy starting from Excel (OreAddin in conjunction with OreMgr),
@@ -20,7 +18,6 @@ All this will be available here: [https://rkapl123.github.io/OreControl/]( https
 Following Article summarizes the [Enhancement of ORE with new instruments](Enhancing_ORE.md)
 
 ## DBAddin
-
 DBAddin is an ExcelDNA-based Addin, providing two main functionalities and a definition Tool:
 
 - Userdefined functions (DBFuncs) for database querying. This is opposed to the integrated MS-Query, which is stored statically in the worksheet and has serious limitations in terms of querying possibilities and constructing parameterized queries (MS-Query allows parameterized queries only for simple queries that can be displayed graphically). Further useful functions for working with database data are included as well.
@@ -30,14 +27,12 @@ DBAddin is an ExcelDNA-based Addin, providing two main functionalities and a def
 Documentation: [https://rkapl123.github.io/DBAddin/](https://rkapl123.github.io/DBAddin/)
 
 ## RAddin
-
 Raddin is a simple ExcelDNA-based Add-in for handling R-scripts from Excel via shell or RdotNet, storing input objects (scalars/vectors/matrices)
 and retrieving result objects (scalars/vectors/matrices) as text files (currently restricted to tab separated) or RdotNet objects.
 Graphics are retrieved from produced png files into Excel to be displayed as diagrams.  
 Documentation: [https://rkapl123.github.io/RAddin](https://rkapl123.github.io/RAddin)
 
 ## ExchangeSetOOF
-
 ExchangeSetOOF provides programmatic setting of automatic replies (out of office) in an exchange environment, based on OOF appointments.
 
 ExchangeSetOOF logs in to the currently logged in users account (using EWS AutoDiscover with users account Emailaddress using System.DirectoryServices.AccountManagement) and searches the appointments between today and the next business day (based on only austrian holidays, this is currently hardcoded in function isHoliday) for appointments being set "away".
@@ -47,7 +42,6 @@ If any such appointment is found, ExchangeSetOOF replaces the template's date pl
 Documentation and download available here: [https://rkapl123.github.io/ExchangeSetOOF](https://rkapl123.github.io/ExchangeSetOOF)
 
 ## CmdLogAddin
-
 ExcelDNA-based Addin that allows you to parse Excel's Cmdline and start any Macro that is contained either inside the started Workbook, a startup loaded Addin or outside.  
 
 Additionally, a logging possibility is provided by retrieving a logger object in VBA (set log = CreateObject("LogAddin.Logger")) and using this to
@@ -70,11 +64,9 @@ Command Argument processing for Excel, Word and Powerpoint to allow (almost) hea
 flexible file and eventLog logging from MS-Office applications and VBScript: [https://sourceforge.net/projects/officegoodies/files/LogAddin/1.0.2/LogAddinSetup.1.0.2.msi/download](https://sourceforge.net/projects/officegoodies/files/LogAddin/1.0.2/LogAddinSetup.1.0.2.msi/download)
 
 ## Data-XLSX-Parser
-
-A really nice, fast and memory efficient parser for new-format Excel (xlsx) files by Daisuke Murase (original author)/Masatoshi Kawazoe(maintainer). The official [CPAN-Module](https://metacpan.org/pod/Data::XLSX::Parser) hasn't yet got the fixes for production readiness (including some format relaxations needed for non-excel generated xlsx).
+A really nice, fast and memory efficient parser for new-format Excel (xlsx) files by Daisuke Murase (original author)/Masatoshi Kawazoe (maintainer). The official [CPAN-Module](https://metacpan.org/pod/Data::XLSX::Parser) hasn't yet got the fixes for production readiness (including some format relaxations needed for non-excel generated xlsx).
 
 ## Useful Tips
-
 Following are links to pages with useful information I've collected during my endeavors:
 
 ### Excel-DNA
