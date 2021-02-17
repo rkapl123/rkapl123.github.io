@@ -63,11 +63,11 @@ Command Argument processing for Excel, Word and Powerpoint to allow (almost) hea
 ### Log-Addin
 flexible file and eventLog logging from MS-Office applications and VBScript: [https://sourceforge.net/projects/officegoodies/files/LogAddin/1.0.2/LogAddinSetup.1.0.2.msi/download](https://sourceforge.net/projects/officegoodies/files/LogAddin/1.0.2/LogAddinSetup.1.0.2.msi/download)
 
-## Data-XLSX-Parser
-A really nice, fast and memory efficient parser for new-format Excel (xlsx) files by Daisuke Murase (original author)/Masatoshi Kawazoe (maintainer). The official [CPAN-Module](https://metacpan.org/pod/Data::XLSX::Parser) hasn't yet got the fixes for production readiness (including some format relaxations needed for non-excel generated xlsx).
-
 ## Useful Tips
 Following are links to pages with useful information I've collected during my endeavors:
+
+### Data-XLSX-Parser
+A really nice, fast and memory efficient parser for new-format Excel (xlsx) files by Daisuke Murase (original author)/Masatoshi Kawazoe (active maintainer, [CPAN-Module](https://metacpan.org/pod/Data::XLSX::Parser)).
 
 ### Excel-DNA
 For creating Excel Addins/Solutions, this is a tool/library you simply can't bypass: [http://excel-dna.net/](http://excel-dna.net/)
