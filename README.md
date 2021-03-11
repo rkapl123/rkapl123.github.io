@@ -43,7 +43,7 @@ Documentation and download available here: [https://rkapl123.github.io/ExchangeS
 
 ## DatePicker
 
-After struggling to find a replacement for the MSCOMCT2 based Datepicker, I finally decided to wrap the .NET MonthCalendar into a nice and small Add-In that offers this functionality to VBA: [https://rkapl123.github.io/DatePicker](https://rkapl123.github.io/DatePicker)  
+After struggling to find a replacement for the MSCOMCT2 based Datepicker, I finally decided to wrap the .NET MonthCalendar into a nice and small Add-In that offers this functionality to VBA: [https://github.com/rkapl123/DatePicker](https://github.com/rkapl123/DatePicker)  
 It can also be used directly from the Ribbon to insert date values into cells.
 
 ## CmdLogAddin
