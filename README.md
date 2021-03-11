@@ -41,6 +41,11 @@ If any such appointment is found, ExchangeSetOOF replaces the template's date pl
 
 Documentation and download available here: [https://rkapl123.github.io/ExchangeSetOOF](https://rkapl123.github.io/ExchangeSetOOF)
 
+## DatePicker
+
+After struggling to find a replacement for the MSCOMCT2 based Datepicker, I finally decided to wrap the .NET MonthCalendar into a nice and small Add-In that offers this functionality to VBA: [https://rkapl123.github.io/DatePicker](https://rkapl123.github.io/DatePicker)  
+It can also be used directly from the Ribbon to insert date values into cells.
+
 ## CmdLogAddin
 ExcelDNA-based Addin that allows you to parse Excel's Cmdline and start any Macro that is contained either inside the started Workbook, a startup loaded Addin or outside.  
 
