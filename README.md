@@ -60,14 +60,6 @@ provide logging messages using 5 levels:
 
 Documentation and download available here: [https://rkapl123.github.io/CmdLogAddin](https://rkapl123.github.io/CmdLogAddin)
 
-As the predecessor versions of the CmdLogAddin, following Addins are still available (only for 32-bit Office installations due to VB6 implementation):  
-
-### CMD-Line parser Add-In
-Command Argument processing for Excel, Word and Powerpoint to allow (almost) headless starting VB-Macros: [https://sourceforge.net/projects/officegoodies/files/CmdArgs](https://sourceforge.net/projects/officegoodies/files/CmdArgs)
-
-### Log-Addin
-flexible file and eventLog logging from MS-Office applications and VBScript: [https://sourceforge.net/projects/officegoodies/files/LogAddin/1.0.2/LogAddinSetup.1.0.2.msi/download](https://sourceforge.net/projects/officegoodies/files/LogAddin/1.0.2/LogAddinSetup.1.0.2.msi/download)
-
 ## Useful Tips/Tools from other people
 Following are links to pages with useful information or tools I've found during my endeavors:
 
