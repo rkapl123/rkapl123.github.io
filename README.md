@@ -3,7 +3,7 @@
 [Github Overview](https://github.com/rkapl123), [All repositories](https://github.com/rkapl123?tab=repositories)
 
 ## Quantlib fully annotated source documentation
-As a frequent user of [Quantlib](http://quantlib.org), I found that I needed to read more than the official reference documentation provided on the official website. 
+As a frequent user of [Quantlib](http://quantlib.org), I found that I needed to read more than the official reference documentation provided on the official website.
 So I decided to tweak the doxygen config to produce a fully annotated source documentation of quantlib including collaboration diagrams, call/caller diagrams and a working search box: [https://rkapl123.github.io/QLAnnotatedSource](https://rkapl123.github.io/QLAnnotatedSource)
 
 ## ORE and OreControl
@@ -68,14 +68,15 @@ Command Argument processing for Excel, Word and Powerpoint to allow (almost) hea
 ### Log-Addin
 flexible file and eventLog logging from MS-Office applications and VBScript: [https://sourceforge.net/projects/officegoodies/files/LogAddin/1.0.2/LogAddinSetup.1.0.2.msi/download](https://sourceforge.net/projects/officegoodies/files/LogAddin/1.0.2/LogAddinSetup.1.0.2.msi/download)
 
-## Useful Tips
-Following are links to pages with useful information I've collected during my endeavors:
-
-### Data-XLSX-Parser
-A really nice, fast and memory efficient parser for new-format Excel (xlsx) files by Daisuke Murase (original author)/Masatoshi Kawazoe (active maintainer, [CPAN-Module](https://metacpan.org/pod/Data::XLSX::Parser)).
+## Useful Tips/Tools from other people
+Following are links to pages with useful information or tools I've found during my endeavors:
 
 ### Excel-DNA
 For creating Excel Addins/Solutions, this is a tool/library you simply can't bypass: [http://excel-dna.net/](http://excel-dna.net/)
+It's very easy to start for all that have some experience in VBA-Programming and - for an open source library - it has a lot of [documentation](https://docs.excel-dna.net/).
+
+### Data-XLSX-Parser
+A really nice, fast and memory efficient parser for new-format Excel (xlsx) files by Daisuke Murase (original author)/Masatoshi Kawazoe (active maintainer, [CPAN-Module](https://metacpan.org/pod/Data::XLSX::Parser)).
 
 ### SQL Server XML Queries
 With examples from the ORE DB project: [SQLServerXML](SQLServerXML.md)
@@ -132,4 +133,3 @@ Dim count As Integer
 End Sub
 
 ```
-
