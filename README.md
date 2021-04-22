@@ -24,7 +24,8 @@ DBAddin is an ExcelDNA-based Addin, providing two main functionalities and a def
 - Modify Database data in Excel using so called "DBModifiers", which are either datatables that enable you to manipulate database data directly inside Excel (DBMappers, similar to MS Access table view). Another method are DBActions, allowing DML code to be issued (insert/update/delete) and finally DBSequences that put DBMappers and DBActions together, additionally allowing refreshing of DB functions and defining a transactional context (Begin and Commit/Rollback).
 - As a useful "leftover" of the old DBSheets (DBSheets definitions are now used for DBMappers, additionally defining foreign key lookup resolutions for foreign keys, so columns containing foreign IDs can be edited more easily), legacy DBSheet definitions can be edited/created with the "Create DBSheet definition" tool and afterwards assigned to Worksheets with the "Assign DBSheet definition" tool.
 
-Documentation: [https://rkapl123.github.io/DBAddin/](https://rkapl123.github.io/DBAddin/)
+Documentation: [https://rkapl123.github.io/DBAddin/](https://rkapl123.github.io/DBAddin/)  
+Slideshow: [https://rkapl123.github.io/dbaddinslides/](https://rkapl123.github.io/dbaddinslides/)
 
 ## RAddin
 Raddin is a simple ExcelDNA-based Add-in for handling R-scripts from Excel via shell or RdotNet, storing input objects (scalars/vectors/matrices)
