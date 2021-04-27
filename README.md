@@ -9,11 +9,11 @@ So I decided to tweak the doxygen config to produce a fully annotated source doc
 ## ORE and OreControl
 I'm using the Opensource Risk Engine ([ORE](http://www.opensourcerisk.org), based on Quantlib), my intention is to provide Tools for easier interaction with/integration of the Opensource Risk Engine. Following three goals are envisaged:
 
-- [ ]  easy starting from Excel (OreAddin in conjunction with OreMgr),
+- [ ]  easy starting from Excel (OreAddin),
 - [x]  loading and migrating ORE data from/to a Database (OreDB)
-- [ ]  a SWIG wrapper (OreMgr) to allow starting ORE from .NET and other environments.
+- [ ]  a Service wrapper (OreMgr) and a Database (OreDB) to run an ORE-Server.
 
-All this will be available here: [https://rkapl123.github.io/OreControl/]( https://rkapl123.github.io/OreControl/)
+All this will be available here: [OreControl]( https://rkapl123.github.io/OreControl/)
 
 Following Article summarizes the [Enhancement of ORE with new instruments](Enhancing_ORE.md)
 
@@ -64,12 +64,16 @@ Documentation and download available here: [https://rkapl123.github.io/CmdLogAdd
 ## Useful Tips/Tools from other people
 Following are links to pages with useful information or tools I've found during my endeavors:
 
-### Excel-DNA
+### Creating Excel Add-Ins with Excel-DNA
 For creating Excel Addins/Solutions, this is a tool/library you simply can't bypass: [http://excel-dna.net/](http://excel-dna.net/)
 It's very easy to start for all that have some experience in VBA-Programming and - for an open source library - it has a lot of [documentation](https://docs.excel-dna.net/).
 
-### Data-XLSX-Parser
+### Parsing Excel Data in Perl with Data-XLSX-Parser
 A really nice, fast and memory efficient parser for new-format Excel (xlsx) files by Daisuke Murase (original author)/Masatoshi Kawazoe (active maintainer, [CPAN-Module](https://metacpan.org/pod/Data::XLSX::Parser)).
+
+### Log-viewing with LogJoint
+After quite a lot of searching, I finally found a very helpful log viewer that displays multiple logs (also rotated historic logs) side-by-side with a nice overview by thread, filtering and lots of other features: [LogJoint](https://github.com/sergey-su/logjoint).
+Can be used for all kinds of logs, if your type is not built in, then simply roll your own format using regular expressions.
 
 ### SQL Server XML Queries
 With examples from the ORE DB project: [SQLServerXML](SQLServerXML.md)
