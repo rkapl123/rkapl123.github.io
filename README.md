@@ -27,11 +27,12 @@ DBAddin is an ExcelDNA-based Addin, providing two main functionalities and a def
 Documentation: [https://rkapl123.github.io/DBAddin/](https://rkapl123.github.io/DBAddin/)  
 Slideshow: [https://rkapl123.github.io/dbaddinslides/](https://rkapl123.github.io/dbaddinslides/)
 
-## RAddin
-Raddin is a simple ExcelDNA-based Add-in for handling R-scripts from Excel via shell or RdotNet, storing input objects (scalars/vectors/matrices)
-and retrieving result objects (scalars/vectors/matrices) as text files (currently restricted to tab separated) or RdotNet objects.
+## ScriptAddin
+ScriptAddin is a simple ExcelDNA-based Add-in for handling scripts (R, Python, Perl, whatever you configure) from Excel, storing input objects (scalars/vectors/matrices)
+and retrieving result objects (scalars/vectors/matrices) as text files (currently restricted to tab separated).
 Graphics are retrieved from produced png files into Excel to be displayed as diagrams.  
-Documentation: [https://rkapl123.github.io/RAddin](https://rkapl123.github.io/RAddin)
+This is an extension and replacement for the now obsolete RAddin.  
+Documentation: [https://rkapl123.github.io/ScriptAddin](https://rkapl123.github.io/ScriptAddin)
 
 ## ExchangeSetOOF
 ExchangeSetOOF provides programmatic setting of automatic replies (out of office) in an exchange environment, based on OOF appointments.
