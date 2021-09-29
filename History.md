@@ -29,7 +29,7 @@ I called it
 
 The Software was written with a very tight memory management, so many functions were put into assembler code residing "below" the ROM area (the C-64 had a technique of mapping multiple memory sources (System ROM and RAM) onto the same address area by switching these on and off)
 Unfortunately I haven't yet found the assembler code (you can see it being loaded in the first line). Until then have fun reading almost completely unintelligible code (and bad style as well).
-To help you refresh your memory in C-64 BASIC, here is the [C-64 Basic Users Reference Manual](http://www.commodore.ca/wp-content/uploads/2018/11/Commodore_Basic_4_Users_Reference-Manual-1.pdf).
+To help you refresh your memory in C-64 BASIC, here is the [C-64 programmers reference guide](https://www.commodore.ca/commodore-manuals/commodore-64-programmers-reference-guide/).
 
 The many `#` characters are actually unconvertable special characters used to format text (bold, background colour, inverse, etc.)
 
