@@ -10,13 +10,17 @@ After retrieving all the files from the floppy disc, I discovered that nothing f
 
 This actually enabled me to run the executable again, the documentation finally was restored to a modern format using the [Legacy File Converter (Word for Word for DOS)](http://www.columbia.edu/~em36/legacyfileconverter.html).
 
-So, this is the documentation in modern PDF format, below, some screenshots from the dos-based planning software:
+So, this is the documentation as a modern [PDF](https://raw.githubusercontent.com/rkapl123/rkapl123.github.io/master/Dienst/HANDBUCH.pdf), below some screenshots from the dos-based planning software:
 
 ### Entry Screen
 ![Image of screenshot1](https://raw.githubusercontent.com/rkapl123/rkapl123.github.io/master/Dienst/DienstSchedule.png)
 
 ### Schedule editing
-![Image of screenshot1](https://raw.githubusercontent.com/rkapl123/rkapl123.github.io/master/Dienst/DienstEntryScreen.png)
+![Image of screenshot2](https://raw.githubusercontent.com/rkapl123/rkapl123.github.io/master/Dienst/DienstEntryScreen.png)
+
+You can even hack the pascal source DIENST.PAS and compile it with the contained turbo pascal 6.0 (for a fresh install go to [https://winworldpc.com/product/turbo-pascal/6x](https://winworldpc.com/product/turbo-pascal/6x)).
+
+The documentation is also still there in source format (Word for DOS format), it's called `HANDBUCH_orig.DOC`.
 
 Another program I wrote (even further back in time) was at my beginnings with computers (the C-64 times) to help me with the heaps of software (mostly games) that accumulated.
 I called it
