@@ -18,7 +18,7 @@ So, this is the documentation as a modern [PDF](https://raw.githubusercontent.co
 ### Schedule editing
 ![Image of screenshot2](https://raw.githubusercontent.com/rkapl123/rkapl123.github.io/master/Dienst/DienstEntryScreen.PNG)
 
-You can even hack the pascal source DIENST.PAS and compile it with the contained turbo pascal 6.0 (for a fresh install go to [https://winworldpc.com/product/turbo-pascal/6x](https://winworldpc.com/product/turbo-pascal/6x)).
+You can even hack the pascal source DIENST.PAS download from [here](https://github.com/rkapl123/rkapl123.github.io/tree/master/Dienst) and compile it with the contained turbo pascal 6.0 (for a fresh install go to [https://winworldpc.com/product/turbo-pascal/6x](https://winworldpc.com/product/turbo-pascal/6x)).
 
 The documentation is also still there in source format (Word for DOS format), it's called `HANDBUCH_orig.DOC`.
 
