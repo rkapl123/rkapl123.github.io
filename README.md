@@ -61,6 +61,9 @@ provide logging messages using 5 levels:
 
 Documentation and download available here: [https://rkapl123.github.io/CmdLogAddin](https://rkapl123.github.io/CmdLogAddin)
 
+## Some History
+After more than 30 years, I decided to revitalize some of my first projects to contribute to the IT-Nostalgia. The story and its results can be found here, in [History](History.md).
+
 ## Useful Tips/Tools from other people
 Following are links to pages with useful information or tools I've found during my endeavors:
 
