@@ -1,16 +1,18 @@
 # Historical Projects
 
-I had some old floppy discs lying around and after more than 30 years, I thought that revitalizing might be a nice thing to do, before these become unreadable.
-The process of bringing this to github was more elaborate than I thought, but in the end successful. First, my 20 year old PC rendered disfunctional after some undefinable explosion during switching the power on.
-Thus my floppy disc had to be read with an external USB drive, so after this was successful, I retrieved a project that was used to help plan shifts in my wife's child-nurse department back in 1991 (I studied computer science at that time).
+I had some old floppy discs lying around and after more than 30 years, I thought that revitalizing some of my early projects might be a nice thing to do before they might finally become unreadable.
+The process of bringing this to github was more elaborate than I thought, but in the end successful. Sorry for all non-german speaking folks, the programs are targeted at german speakers.  
+
+First, my 20 year old PC was rendered disfunctional after some undefinable explosion (maybe a capacitor) during switching the power on.
+Thus my floppy discs had to be read with an external USB drive, so after this was successful, I first retrieved a project that was used to help plan shifts in my wife's child-nurse department back in 1991 (I studied computer science at that time).
 
 ## Dienst (Shift planning software)
 
-After retrieving all the files from the floppy disc, I discovered that no software from the 90's worked, so in order to first get the documentation up and runnding, I finally found the [Dosbox project](http://www.dosbox.com) and abother hint to a free installation of [Word for DOS](http://download.microsoft.com/download/word97win/Wd55_be/97/WIN98/EN-US/Wd55_ben.exe).
+After getting all the files from the floppy disc, I discovered that no software from the 90's worked, so in order to get the documentation up and running and start the program, I found the [Dosbox project](http://www.dosbox.com) and abother hint to a free installation of [Word for DOS](http://download.microsoft.com/download/word97win/Wd55_be/97/WIN98/EN-US/Wd55_ben.exe).
 
-This actually enabled me to run the executable again, the documentation finally was restored to a modern format using the [Legacy File Converter (Word for Word for DOS)](http://www.columbia.edu/~em36/legacyfileconverter.html).
+Now I could run the executable again and the documentation finally was restored to a modern format using the [Legacy File Converter (Word for Word for DOS)](http://www.columbia.edu/~em36/legacyfileconverter.html).
 
-So, this is the documentation as a modern [PDF](https://raw.githubusercontent.com/rkapl123/rkapl123.github.io/master/Dienst/HANDBUCH.pdf), below some screenshots from the dos-based planning software:
+So here is the documentation as a modern [PDF](https://raw.githubusercontent.com/rkapl123/rkapl123.github.io/master/Dienst/HANDBUCH.pdf), below some screenshots from the dos-based planning software:
 
 ### Entry Screen
 ![Image of screenshot1](https://raw.githubusercontent.com/rkapl123/rkapl123.github.io/master/Dienst/DienstSchedule.PNG)
@@ -18,16 +20,16 @@ So, this is the documentation as a modern [PDF](https://raw.githubusercontent.co
 ### Schedule editing
 ![Image of screenshot2](https://raw.githubusercontent.com/rkapl123/rkapl123.github.io/master/Dienst/DienstEntryScreen.PNG)
 
-You can even hack the pascal source DIENST.PAS download from [here](https://github.com/rkapl123/rkapl123.github.io/tree/master/Dienst) and compile it with the contained turbo pascal 6.0 (for a fresh install go to [https://winworldpc.com/product/turbo-pascal/6x](https://winworldpc.com/product/turbo-pascal/6x)).
+If you're interested, you can even hack the pascal source DIENST.PAS download from [here](https://github.com/rkapl123/rkapl123.github.io/tree/master/Dienst) and compile it with the contained turbo pascal 6.0 (for a fresh install go to [https://winworldpc.com/product/turbo-pascal/6x](https://winworldpc.com/product/turbo-pascal/6x)).
 
 The documentation is also still there in source format (Word for DOS format), it's called `HANDBUCH_orig.DOC`.
 
-Another program that I wrote even further back in time (1985), when I started with computers (C-64 times) was used to help me with the heaps of software (mostly games) that accumulated a lot back then.
+Another program that I wrote even further back in time (1985, when I started with computers we had the [Commodore 64 era](https://www.commodore.ca)) was used to help me with the heaps of software (mostly games) that accumulated a lot back then.
 I called it
 
 ## Diskmanager C64
 
-The Software was written with a very tight memory management, so many functions were put into assembler code residing "below" the ROM area (the C-64 had a technique of mapping multiple memory sources (System ROM and RAM) onto the same address area by switching these on and off)
+The Software was written with very tight memory management in mind (all my collected software had to fit into 64KB (minus the program) !), so many functions were put into assembler code residing "below" the ROM area (the C-64 had a technique of mapping multiple memory sources (System ROM and RAM) onto the same address area by switching these on and off)
 Unfortunately I haven't yet found the assembler code (you can see it being loaded in the first line). Until then have fun reading almost completely unintelligible code (and bad style as well).
 To help you refresh your memory in C-64 BASIC, here is the [C-64 programmers reference guide](https://www.commodore.ca/commodore-manuals/commodore-64-programmers-reference-guide/).
 
