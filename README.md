@@ -16,6 +16,7 @@ I'm using the Opensource Risk Engine ([ORE](http://www.opensourcerisk.org), base
 All this will be available here: [OreControl]( https://rkapl123.github.io/OreControl/)
 
 Following Article summarizes the [Enhancement of ORE with new instruments](Enhancing_ORE.md)
+Also, a fully annotated source documentation of ORE's three libraries is available here: [https://rkapl123.github.io/OREAnnotatedSource](https://rkapl123.github.io/OREAnnotatedSource)
 
 ## DBAddin
 DBAddin is an ExcelDNA-based Addin, providing two main functionalities and a definition Tool:
