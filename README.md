@@ -84,6 +84,67 @@ Can be used for all kinds of logs, if your type is not built in, then simply rol
 ### SQL Server XML Queries
 With examples from the ORE DB project: [SQLServerXML](SQLServerXML.md)
 
+
+### A nice VB script to get the title of the current desktop wallpaper
+
+As I'm a fond user of beautiful landscape wallpapers and also like to know the whereabouts of these pictures, I always try to store the information in the title of these pictures.
+From [what I've seen](https://techdows.com/2016/01/where-windows-10-themes-photos-were-taken.html) this is also done for Windows 10 desktop themes.
+
+Now, if there is a wallpaper displayed that I'm not really familiar with, I wanted a quick way get to this info. 
+Following script, derived from raveren's [https://gist.github.com/raveren/ab475336cc69879a378b](https://gist.github.com/raveren/ab475336cc69879a378b) does this job quite properly, if there are no unicode characters in the path.
+Put it in a vbs file on the desktop or anywhere easily reachable and click it whenever you need this information!
+
+
+```vb
+Set Shell = CreateObject("WScript.Shell")
+
+' change to TranscodedImageCache_001 for second monitor and so on
+getTitleOfWallpaper("HKCU\Control Panel\Desktop\TranscodedImageCache_000")
+
+Function getTitleOfWallpaper(regKey)
+  ' decode the filename in the given registry storage
+  arr = Shell.RegRead(regKey)
+  a=arr
+  fullPath = ""
+  consequtiveZeroes = 0
+
+  For I = 24 To Ubound(arr)
+    if consequtiveZeroes > 1 then
+      exit for
+    end if
+
+    a(I) = Cint(arr(I))
+
+    if a(I) > 1 then
+      fullPath = fullPath & Chr(a(I))
+      consequtiveZeroes = 0
+    else
+      consequtiveZeroes = consequtiveZeroes + 1
+    end if
+  Next
+  
+  ' read the picture file from there
+  TotalFile = readBinary(fullPath)
+  
+  ' grab the title from the file's meta information
+  Dim oRe, oMatches
+  Set oRe = New RegExp
+  oRe.Pattern = "<dc:title><rdf:Alt .*?><rdf:li .*?>(.*?)</rdf:li></rdf:Alt>"
+  Set oMatches = oRe.Execute(TotalFile)
+  MsgBox(oMatches(0).SubMatches(0))
+End Function
+
+Function readBinary(strPath)
+    Dim oFSO: Set oFSO = CreateObject("Scripting.FileSystemObject")
+    Dim oFile: Set oFile = oFSO.GetFile(strPath)
+    If IsNull(oFile) Then MsgBox("File not found: " & strPath) : Exit Function
+    With oFile.OpenAsTextStream()
+        readBinary = .Read(oFile.Size)
+        .Close
+    End With
+End Function
+```
+
 ### Face-IDs for Office Versions >= 2010
 Following Code was adapted from John D. Mclean's code for Excel <= 2003 and displays all Face-IDs available for commandbar buttons in the Add-Ins ribbon (this is a long list, change the 4891 (max. number for Office 2010) to your office version):
 
@@ -134,5 +195,4 @@ Dim count As Integer
     count = count + 1
   Loop While count < 4891 '4890 seems to be the maximum FaceID #
 End Sub
-
 ```
