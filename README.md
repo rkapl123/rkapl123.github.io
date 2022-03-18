@@ -87,8 +87,8 @@ With examples from the ORE DB project: [SQLServerXML](SQLServerXML.md)
 
 ### A nice VB script to get the title of the current desktop wallpaper
 
-As I'm a fond user of beautiful landscape wallpapers and also like to know the whereabouts of these pictures, I always try to store the information in the title of these pictures.
-From [what I've seen](https://techdows.com/2016/01/where-windows-10-themes-photos-were-taken.html) this is also done for Windows 10 desktop themes.
+As I'm a fond user of beautiful landscape wallpapers and also like to know the location of these pictures, I always try to store the information in the title of these pictures.
+From [what I've seen](https://techdows.com/2016/01/where-windows-10-themes-photos-were-taken.html) this is also done for several Windows 10 desktop themes.
 
 Now, if there is a wallpaper displayed that I'm not really familiar with, I wanted a quick way get to this info. 
 Following script, derived from raveren's [https://gist.github.com/raveren/ab475336cc69879a378b](https://gist.github.com/raveren/ab475336cc69879a378b) does this job quite properly, if there are no unicode characters in the path.
@@ -131,7 +131,9 @@ Function getTitleOfWallpaper(regKey)
   Set oRe = New RegExp
   oRe.Pattern = "<dc:title><rdf:Alt .*?><rdf:li .*?>(.*?)</rdf:li></rdf:Alt>"
   Set oMatches = oRe.Execute(TotalFile)
+  On Error Resume Next
   MsgBox(oMatches(0).SubMatches(0))
+  if Err<>0 then MsgBox "No Title property found in current Wallpaper image !"
 End Function
 
 Function readBinary(strPath)
