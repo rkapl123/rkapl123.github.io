@@ -37,11 +37,11 @@ This is an extension and replacement for the now obsolete RAddin.
 Documentation: [https://rkapl123.github.io/ScriptAddin](https://rkapl123.github.io/ScriptAddin)
 
 ## ExchangeSetOOF
-ExchangeSetOOF provides programmatic setting of automatic replies (out of office) in an exchange environment, based on OOF appointments.
+ExchangeSetOOF provides programmatic setting of automatic replies (out of office) in an exchange environment, based on calendar appointments having an "away" status.
 
-ExchangeSetOOF logs in to the currently logged in users account (using EWS AutoDiscover with users account Emailaddress using System.DirectoryServices.AccountManagement) and searches the appointments between today and the next business day (based on only austrian holidays, this is currently hardcoded in function isHoliday) for appointments being set "away".
+ExchangeSetOOF logs in to the currently logged in users account (using EWS AutoDiscover with users account Emailaddress using System.DirectoryServices.AccountManagement) and searches the appointments between today and the next business day (based on configured holidays) for appointments being set "away".
 
-If any such appointment is found, ExchangeSetOOF replaces the template's date placeholder with the respective end date and (if wanted) also start date. The languages used for the replacement of the date placeholders are (hardcoded) german and english (easily changed at the top of the program). The automatic reply (out of office) is being scheduled to start from the Start Date of the OOF appointment and end on the End Date of the OOF appointment.
+If any such appointment is found, ExchangeSetOOF replaces the template's date placeholder with the respective end date and (if wanted) also start date. The languages used for the replacement of the date placeholders are configurable (hardcoded are german and english). The automatic reply (out of office) is being scheduled to start from the Start Date of the OOF appointment and end on the End Date of the OOF appointment.
 
 Documentation and download available here: [https://rkapl123.github.io/ExchangeSetOOF](https://rkapl123.github.io/ExchangeSetOOF)
 
