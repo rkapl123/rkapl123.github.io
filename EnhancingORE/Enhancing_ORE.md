@@ -1,5 +1,3 @@
-# Enhancing ORE
-
 Following is an overview on enhancing ORE with new instruments using the example of CMS Spread Structured Swaps with three market variables.
 We start bottom up (in the libraries layers), starting with Quantlib and ORE's Quantlib extension (QLE), 
 then enhancing the Data level (Market Data and Trade/Leg/Engine Representation) and ending with the Analytics layer.

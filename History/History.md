@@ -1,5 +1,3 @@
-# Historical Projects
-
 I had some old floppy discs lying around and after more than 30 years, I thought that revitalizing some of my early projects might be a nice thing to do before they might finally become unreadable.
 The process of bringing this to github was more elaborate than I thought, but in the end successful. Sorry for all non-german speaking folks, the programs are targeted at german speakers.  
 
