@@ -64,6 +64,11 @@ provide logging messages using 5 levels:
 
 Documentation and download available here: [https://rkapl123.github.io/CmdLogAddin](https://rkapl123.github.io/CmdLogAddin)
 
+## Scouts administration helper
+
+As a member of a local scouting group and being responsible for the member registration/administration, I've created a few tools to produce invoice- and other mailings to the members as well as registering/updating member information from our WordPress Form based pages. This however only works in conjunction with the registration tool iGrins from the Scouts of Lower Austria: [https://www.noe-pfadfinder.at/igrins](https://www.noe-pfadfinder.at/igrins)
+If you still think this is useful, read the documentation: [https://rkapl123.github.io/PfadfinderSchreiben](https://rkapl123.github.io/PfadfinderSchreiben)
+
 ## Some History
 After more than 30 years, I decided to revitalize some of my first projects to contribute to the IT-Nostalgia. The story and its results can be found here, in [History](History.md).
 
