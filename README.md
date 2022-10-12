@@ -66,7 +66,8 @@ Documentation and download available here: [https://rkapl123.github.io/CmdLogAdd
 
 ## Scouts administration helper
 
-As a member of a local scouting group and being responsible for the member registration/administration, I've created a few tools to produce invoice- and other mailings to the members as well as registering/updating member information from our WordPress Form based pages. This however only works in conjunction with the registration tool iGrins from the Scouts of Lower Austria: [https://www.noe-pfadfinder.at/igrins](https://www.noe-pfadfinder.at/igrins)
+As a member of a local scouting group and being responsible for the member registration/administration, I've created a few tools to produce invoice- and other mailings to the members as well as registering/updating member information from our WordPress Form based pages. This however only works in conjunction with the registration tool iGrins from the Scouts of Lower Austria: [https://www.noe-pfadfinder.at/igrins](https://www.noe-pfadfinder.at/igrins)  
+
 If you still think this is useful, read the documentation: [https://rkapl123.github.io/PfadfinderSchreiben](https://rkapl123.github.io/PfadfinderSchreiben)
 
 ## Some History
