@@ -204,3 +204,47 @@ Dim count As Integer
   Loop While count < 4891 '4890 seems to be the maximum FaceID #
 End Sub
 ```
+
+### executing VB.NET dynamically
+
+Using below method you can execute dynamically provided code, in order to execute C-Sharp code, replace "VisualBasic" with "CSharp" in the `Dim codeProvider As CodeDomProvider = CodeDomProvider.CreateProvider("VisualBasic")` assignmenent.
+
+```vb
+Imports Microsoft.VisualBasic
+Imports System.CodeDom
+Imports System.CodeDom.Compiler
+
+Public Module Module1
+
+    Public Sub runExampleScript()
+        Dim script As String = "Public Class DummyClass" + vbCrLf +
+        "Public Shared Function DoSomething(paramString As String) As String" + vbCrLf +
+        "Return ""Hello World, you provided: "" + paramString " + vbCrLf +
+        "End Function" + vbCrLf +
+        "End Class"
+        MsgBox(ExecuteScript(script))
+    End Sub
+
+    Public Function ExecuteScript(ByVal scripttext As String) As String
+        Dim codeProvider As CodeDomProvider = CodeDomProvider.CreateProvider("VisualBasic")
+        Dim params As New CompilerParameters With {
+            .GenerateExecutable = False,
+            .GenerateInMemory = True,
+            .IncludeDebugInformation = False,
+            .TreatWarningsAsErrors = False
+        }
+        ' add any required assemblies needed by the dynamic code here:
+        'params.ReferencedAssemblies.Add("system.dll")
+        'params.ReferencedAssemblies.Add("System.Windows.Forms.dll")
+        Dim results As CompilerResults = codeProvider.CompileAssemblyFromSource(params, scripttext)
+        If results.Errors.Count = 0 Then
+            Dim methParams(0) As Object
+            methParams(0) = ExcelDnaUtil.Application.ActiveCell.Text
+            Return results.CompiledAssembly.GetType("DummyClass").GetMethod("DoSomething").Invoke(Nothing, methParams)
+        Else
+            Return Nothing
+        End If
+    End Function
+
+End Module
+```
