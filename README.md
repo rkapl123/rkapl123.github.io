@@ -37,7 +37,7 @@ git checkout c235cdabbb34beaae601700092b9abfefdd7fc6a (commit number of the asso
 
 The commit on the last line for the QuantLib submodule could either be communicated along with the release or can always be found on the git code page when having selected the release tag in the branch/tag switch.
 
-Another challenge is to get the correct boost binary for the Visual Studio version (from https://sourceforge.net/projects/boost/files/boost-binaries/), to find the appropriate toolset version compatible with visual studio a good reference is https://en.wikipedia.org/wiki/Microsoft_Visual_C%2B%2B#Internal_version_numbering, the runtime library version is in the last column, the toolset version (as needed by the linker looking up the libraries) can be obtained by taking the first three digits of the runtime library version and dropping the decimal point, e.g. '143' for all Visual Studio 2022 versions.
+Another challenge is to get the correct boost binary for the Visual Studio version (from [sourceforge boost-binaries](https://sourceforge.net/projects/boost/files/boost-binaries/)), to find the appropriate toolset version compatible with visual studio a good reference is [Microsoft Visual C++ Internal_version_numbering](https://en.wikipedia.org/wiki/Microsoft_Visual_C%2B%2B#Internal_version_numbering), the runtime library version is in the last column, the toolset version (as needed by the linker looking up the libraries) can be obtained by taking the first three digits of the runtime library version and dropping the decimal point, e.g. '143' for all Visual Studio 2022 versions.
 
 Since boost 1_78, there is a problem with the application binary interface, it's important to add a target_compile_definition that restricts the used version to 0x0600 after the add_executable of the orea-test-suite in $ORE/OREAnalytics/test/CMakeLists.txt:
 
@@ -60,15 +60,15 @@ DBAddin is an ExcelDNA-based Addin, providing two main functionalities and a def
 - Modify Database data in Excel using so called "DBModifiers", which are either datatables that enable you to manipulate database data directly inside Excel (DBMappers, similar to MS Access table view). Another method are DBActions, allowing DML code to be issued (insert/update/delete) and finally DBSequences that put DBMappers and DBActions together, additionally allowing refreshing of DB functions and defining a transactional context (Begin and Commit/Rollback).
 - As a useful "leftover" of the old DBSheets (DBSheets definitions are now used for DBMappers, additionally defining foreign key lookup resolutions for foreign keys, so columns containing foreign IDs can be edited more easily), legacy DBSheet definitions can be edited/created with the "Create DBSheet definition" tool and afterwards assigned to Worksheets with the "Assign DBSheet definition" tool.
 
-Documentation: [https://rkapl123.github.io/DBAddin/](https://rkapl123.github.io/DBAddin/)  
-Slideshow: [https://rkapl123.github.io/dbaddinslides/](https://rkapl123.github.io/dbaddinslides/)
+[Documentation](https://rkapl123.github.io/DBAddin/)  
+[Slideshow](https://rkapl123.github.io/dbaddinslides/)
 
 ## ScriptAddin
 ScriptAddin is a simple ExcelDNA-based Add-in for handling scripts (R, Python, Perl, whatever you configure) from Excel, storing input objects (scalars/vectors/matrices)
 and retrieving result objects (scalars/vectors/matrices) as text files (currently restricted to tab separated).
 Graphics are retrieved from produced png files into Excel to be displayed as diagrams.  
 This is an extension and replacement for the now obsolete RAddin.  
-Documentation: [https://rkapl123.github.io/ScriptAddin](https://rkapl123.github.io/ScriptAddin)
+[Documentation](https://rkapl123.github.io/ScriptAddin)
 
 ## ExchangeSetOOF
 ExchangeSetOOF provides programmatic setting of automatic replies (out of office) in an exchange environment, based on calendar appointments having an "away" status.
@@ -77,11 +77,11 @@ ExchangeSetOOF logs in to the currently logged in users account (using EWS AutoD
 
 If any such appointment is found, ExchangeSetOOF replaces the template's date placeholder with the respective end date and (if wanted) also start date. The languages used for the replacement of the date placeholders are configurable (hardcoded are german and english). The automatic reply (out of office) is being scheduled to start from the Start Date of the OOF appointment and end on the End Date of the OOF appointment.
 
-Documentation and download available here: [https://rkapl123.github.io/ExchangeSetOOF](https://rkapl123.github.io/ExchangeSetOOF)
+[Documentation and download](https://rkapl123.github.io/ExchangeSetOOF)
 
 ## DatePicker
 
-After struggling to find a replacement for the MSCOMCT2 based Datepicker, I finally decided to wrap the .NET MonthCalendar into a nice and small Add-In that offers this functionality to VBA: [https://github.com/rkapl123/DatePicker](https://github.com/rkapl123/DatePicker)  
+After struggling to find a replacement for the MSCOMCT2 based Datepicker, I finally decided to wrap the .NET MonthCalendar into a nice and small Add-In that offers this functionality to VBA: [Repository](https://github.com/rkapl123/DatePicker)  
 It can also be used directly from the Ribbon to insert date values into cells.
 
 ## CmdLogAddin
@@ -96,13 +96,13 @@ provide logging messages using 5 levels:
 - log.Info
 - log.Debug
 
-Documentation and download available here: [https://rkapl123.github.io/CmdLogAddin](https://rkapl123.github.io/CmdLogAddin)
+[Documentation and download](https://rkapl123.github.io/CmdLogAddin)
 
 ## Scouts administration helper
 
 As a member of a local scouting group and being responsible for the member registration/administration, I've created a few tools to produce invoice- and other mailings to the members as well as registering/updating member information from our WordPress Form based pages. This however only works in conjunction with the registration tool iGrins from the Scouts of Lower Austria: [https://www.noe-pfadfinder.at/igrins](https://www.noe-pfadfinder.at/igrins)  
 
-If you still think this is useful, read the documentation: [https://rkapl123.github.io/PfadfinderSchreiben](https://rkapl123.github.io/PfadfinderSchreiben)
+If you still think this is useful, read the [documentation](https://rkapl123.github.io/PfadfinderSchreiben).
 
 ## Some History
 After more than 30 years, I decided to revitalize some of my first projects to contribute to the IT-Nostalgia. The story and its results can be found here, in [History](History.md).
