@@ -19,6 +19,39 @@ Following Article summarizes the [Enhancement of ORE with new instruments](Enhan
 
 Also, a fully annotated source documentation of ORE's three libraries is available here: [https://rkapl123.github.io/OREAnnotatedSource](https://rkapl123.github.io/OREAnnotatedSource)
 
+### Tips for building ORE
+
+First, it is important to retrieve the QuantLib compatible with the chosen ORE version (e.g. 1.8.10), the safest way is usually NOT to pull the current master but rather to switch to the corresponding tag in the branch/tag switch (e.g. v.1.8.10.0), then download the zip with the <> code download button, next go to the QuantLib version that this ORE Version was built with on the external submodule link (e.g. QuantLib @ c235cda) and download the zip with the <> code download button there as well. The last step is to integrate the downloaded QuantLib source into the ORE source tree (QuantLib folder).
+
+If you rather like to check out directly from the source, then following git commands should be sufficient:
+
+```git clone https://github.com/opensourcerisk/engine.git oredir
+cd oredir
+git checkout tags/v1.8.10.0 (or any other tag)
+git submodule init
+git submodule update
+cd QuantLib
+git checkout c235cdabbb34beaae601700092b9abfefdd7fc6a (commit number of the associated/patched Quantlib version)
+```
+
+The commit on the last line for the QuantLib submodule could either be communicated along with the release or can always be found on the git code page when having selected the release tag in the branch/tag switch.
+
+Another challenge is to get the correct boost binary for the Visual Studio version (from https://sourceforge.net/projects/boost/files/boost-binaries/), to find the appropriate toolset version compatible with visual studio a good reference is https://en.wikipedia.org/wiki/Microsoft_Visual_C%2B%2B#Internal_version_numbering, the runtime library version is in the last column, the toolset version (as needed by the linker looking up the libraries) can be obtained by taking the first three digits of the runtime library version and dropping the decimal point, e.g. '143' for all Visual Studio 2022 versions.
+
+Since boost 1_78, there is a problem with the application binary interface, it's important to add a target_compile_definition that restricts the used version to 0x0600 after the add_executable of the orea-test-suite in $ORE/OREAnalytics/test/CMakeLists.txt:
+
+```
+add_executable(orea-test-suite ${OREAnalytics-Test_SRC})
+target_link_libraries(orea-test-suite ${QL_LIB_NAME})
+target_link_libraries(orea-test-suite ${QLE_LIB_NAME})
+target_link_libraries(orea-test-suite ${ORED_LIB_NAME})
+target_link_libraries(orea-test-suite ${OREA_LIB_NAME})
+target_link_libraries(orea-test-suite ${Boost_LIBRARIES} ${RT_LIBRARY})
+
+target_compile_definitions(orea-test-suite PUBLIC BOOST_USE_WINAPI_VERSION=0x0600)
+```
+
+
 ## DBAddin
 DBAddin is an ExcelDNA-based Addin, providing two main functionalities and a definition Tool:
 
