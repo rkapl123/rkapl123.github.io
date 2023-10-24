@@ -25,7 +25,8 @@ First, it is important to retrieve the QuantLib compatible with the chosen ORE v
 
 If you rather like to check out directly from the source, then following git commands should be sufficient:
 
-```git clone https://github.com/opensourcerisk/engine.git oredir
+```
+git clone https://github.com/opensourcerisk/engine.git oredir
 cd oredir
 git checkout tags/v1.8.10.0 (or any other tag)
 git submodule init
