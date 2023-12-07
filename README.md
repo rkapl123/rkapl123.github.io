@@ -177,13 +177,18 @@ Function getTitleOfWallpaper(regKey)
 End Function
 
 Function readBinary(strPath)
-    Dim oFSO: Set oFSO = CreateObject("Scripting.FileSystemObject")
-    Dim oFile: Set oFile = oFSO.GetFile(strPath)
-    If IsNull(oFile) Then MsgBox("File not found: " & strPath) : Exit Function
-    With oFile.OpenAsTextStream()
-        readBinary = .Read(oFile.Size)
-        .Close
-    End With
+  Dim objStream, fso
+  Set fso = CreateObject("Scripting.FileSystemObject")
+  If not fso.FileExists(strPath) Then 
+    MsgBox("File not found: " & strPath) 
+    Exit Function
+  End If
+  Set objStream = CreateObject("ADODB.Stream")
+  objStream.CharSet = "utf-8"
+  objStream.Open
+  objStream.LoadFromFile(strPath)
+  readBinary = objStream.ReadText()
+  objStream.Close
 End Function
 ```
 
