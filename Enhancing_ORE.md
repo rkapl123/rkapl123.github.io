@@ -6,6 +6,8 @@ Following is an overview on enhancing ORE with new instruments using the example
 We start bottom up (in the libraries layers), starting with Quantlib and ORE's Quantlib extension (QLE), 
 then enhancing the Data level (Market Data and Trade/Leg/Engine Representation) and ending with the Analytics layer.
 
+For further details, see ORE's fully annotated source documentation here: [https://rkapl123.github.io/OREAnnotatedSource](https://rkapl123.github.io/OREAnnotatedSource)
+
 1. First Steps (QL, QLE)
    1. add Instrument / Index / Coupon
    2. add PricingEngine / CouponPricer

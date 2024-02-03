@@ -1,0 +1,14 @@
+C:\dev\ORE\documentation
+https://rkapl123.github.io/OREAnnotatedSource/
+1
+C:\dev\ORE\documentation\Examples\Example_2\Output\log.txt
+C:\dev\ORE\documentation\Examples\Example_10\Output\log.txt
+C:\dev\ORE\documentation\Examples\Example_15\Output\log.txt
+C:\dev\ORE\documentation\Examples\Example_15\Output\log_var.txt
+C:\dev\ORE\documentation\Examples\Example_37\Output\log.txt
+C:\dev\ORE\documentation\Examples\Example_38\Output\log.txt
+C:\dev\ORE\documentation\Examples\Example_39\Output\log.txt
+C:\dev\ORE\documentation\Examples\Example_47\Output\log.txt
+C:\dev\ORE\documentation\Examples\Example_52\Output\log.txt
+
+https://github.com/OpenSourceRisk/Engine/blob/master/
