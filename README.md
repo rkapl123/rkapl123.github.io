@@ -7,13 +7,12 @@ As a frequent user of [Quantlib](http://quantlib.org), I found that I needed to 
 So I decided to tweak the doxygen config to produce a fully annotated source documentation of quantlib including collaboration diagrams, call/caller diagrams and a working search box: [https://rkapl123.github.io/QLAnnotatedSource](https://rkapl123.github.io/QLAnnotatedSource)
 
 ## ORE and OreControl
-I'm using the Opensource Risk Engine ([ORE](http://www.opensourcerisk.org), based on Quantlib), my intention is to provide Tools for easier interaction with/integration of the Opensource Risk Engine. Following three goals are envisaged:
+I'm using the Opensource Risk Engine ([ORE](http://www.opensourcerisk.org), based on Quantlib), my intention is to provide Tools for easier interaction with/integration of the Opensource Risk Engine. Following goals are envisaged:
 
 - [ ]  easy starting from Excel (OreAddin),
 - [x]  loading and migrating ORE data from/to a Database (OreDB)
-- [ ]  a Service wrapper (OreMgr) and a Database (OreDB) to run an ORE-Server.
 
-All this will be available here: [OreControl]( https://rkapl123.github.io/OreControl/)
+This will be / is available here: [OreControl]( https://rkapl123.github.io/OreControl/)
 
 Following Article summarizes the [Enhancement of ORE with new instruments](Enhancing_ORE.md).
 
