@@ -8,7 +8,7 @@ then enhancing the Data level (Market Data and Trade/Leg/Engine Representation) 
 
 For further details, see [ORE's fully annotated sourcecode](https://rkapl123.github.io/OREAnnotatedSource) and the [Design documentation](ore_design.pdf)
 
-1. First Steps (QL, QLE)
+1. First Steps (QL/QLE: Instrument, PricingEngine, TermStructure)
    1. add Instrument / Index / Coupon
    2. add PricingEngine / CouponPricer
    3. add TermStructure
@@ -56,15 +56,15 @@ ORE can usually be enhanced by adding separate code files, however in following 
 * extend FixingManager in orea/simulation/fixingmanager.cpp (not in this example)
 
 
-# First Steps (QL, QLE)
+# First Steps (QL/QLE)
 
-## QL: add Instrument / Index / Coupon
+## QL/QLE: add Instrument / Index / Coupon
   either use an existing instrument (e.g. Swap instrument), an existing Index (e.g. SwapSpreadIndex) and an existing Coupon (e.g. CmsSpreadCoupon) from QuantLib
   or ...
 
 ### add your own Instrument:
-  using existing Swap instrument here. In case you want to add your own Instrument, in addition of writing a QL/QLE instrument, 
-  you'd have to add a Trade Builder (see [here](#ored-add-trade))
+  We're using the existing Swap instrument here. In case you wanted to add your own Instrument, in addition of writing a QL/QLE instrument, 
+  you'd then have to add a Trade Builder in ORED/Portfolio (see [here](#ored-add-trade))
 
 ### add your own Index: qle/indexes/swapspread3index.hpp and .cpp:
 
@@ -371,7 +371,7 @@ namespace QuantExt {
 }
 ```
 
-## QL: add PricingEngine / CouponPricer
+## QL/QLE: add PricingEngine / CouponPricer
   Either use an existing, matching coupon pricer from QuantLib (LognormalCmsSpreadPricer, requires a single implied correlation parameter)  
   or ...
   
@@ -742,11 +742,11 @@ void PricerSetter::visit(CmsSpread3Coupon& c) {
 } // namespace QuantExt
 ```
 
-## QL: add TermStructure
+## QL/QLE: add TermStructure
 Ideally we should have a correlation term structure, this should support maturity and strike dimensions.
 Straightforward to implement, but for the time being we will treat the implied correlation as a model parameter, thus no term structure is  required.
 
-## QL: extend CrossAssetModel (for XVA simulation)
+## QL/QLE: extend CrossAssetModel (for XVA simulation)
 The existing cross asset model implies perfect correlation between CMS rates, we could possibly extend the IR component in qle/models/crossassetmodel.?pp so that it can be calibrated to market prices 
 for cms spread options, but for the moment we skip this and use our fixed, external implied correlation for simulation.
 Notice that this is inconsistent to a certain degree!
@@ -983,8 +983,8 @@ Leg makeCMSSpread3Leg(const LegData& data,
 }
 ```
 
-## ORED: CMSSpreadLegData, makeCMSSpreadLeg
-CMSSpreadData describes the leg, as it is specified in XML, makeCMSSpreadLeg builds the actual QL Leg, this is called from the leg builder (see below).
+## ORED: CMSSpread3LegData, makeCMSSpread3Leg
+CMSSpread3LegData describes the leg, as it is specified in XML, makeCMSSpread3Leg builds the actual QL Leg, this is called from the leg builder (see below).
 
 ## ORED: add Trade
 Existing examples in ored/portfolio...  
@@ -993,17 +993,17 @@ Represents the trade as specified in XML and uses Components like Envelope, LegD
 It builds the actual ORE instrument that wraps the QL trade using an engine builder and a trade builder.
 
 ## ORED: add TradeBuilder
-Done in ored/portfolio/tradefactory.cpp  
-builds a `boost::shared_ptr` to a trade and is registered with the TradeFactory with the trade type string, 
-either modified in `TradeFactory::TradeFactory()` (`addBuilder("YourInstrument", boost::make_shared<TradeBuilder<YourInstrument>>());`), 
-or alternatively you could use the addExtraBuilders method and override getExtraTradeBuilders in orea/app/oreapp.hpp (called in `OREApp::getExtraTradeBuilders()`)
-Pure Boilerplate Code, no business logic whatsoever present.
+Done in ored/utilities/initbuilders.cpp using the Macro `ORE_REGISTER_TRADE_BUILDER("YourInstrument", YourInstrument, false)`  
+This makes a `boost::shared_ptr` to a trade builder and is registered with the TradeFactory with the trade type string, 
+actually calling `ore::data::TradeFactory::instance().addBuilder("YourInstrument", boost::make_shared<ore::data::TradeBuilder<YourInstrument>>(), false);`  
 
 ## ORED: add LegBuilder
-Builds the actual QL Leg given the specific LegData for a leg type and an engine builder, typically calls `make*Type*Leg()` in legdata.?pp, here `makeCMSSpreadLeg()`.
-Here, the cms spread index is also created on the fly.
+Done in ored/utilities/initbuilders.cpp using the Macro `ORE_REGISTER_LEGBUILDER("YourLegBuilder", YourLegBuilder, false)
+This allows to build the actual QL Leg given the specific LegData for a leg type and an engine builder, actually calling `ore::data::EngineBuilderFactory::instance().addLegBuilder([]() { return boost::make_shared<FormulaBasedLegBuilder>(); }, false);`
+The Legbuilder itself calls `make*Type*Leg()` as shown above in legdata.?pp, here it calls `makeCMSSpread3Leg()`.
+In our example the cms spread index is also created on the fly.
 
-### Done in ored/portfolio/legbuilders.hpp and .cpp (or extending those as separate files):
+### The Legbuilder is added in ored/portfolio/legbuilders.hpp and .cpp (or extending those as separate files):
 
 ```cpp
 ....
@@ -1041,24 +1041,12 @@ Leg CMSSpread3LegBuilder::buildLeg(const LegData& data,
 }
 ```
 
-### The LegBuilder is registered with the engine factory in ored/portfolio/enginefactory.cpp
-Alternatively you could use the addExtraBuilders method and override getExtraEngineBuilders() and getExtraLegBuilders() in orea/app/oreapp.hpp (called in `OREApp::buildEngineFactory`)
-
-```cpp
-void EngineFactory::addDefaultBuilders() {
-....
-    registerBuilder(boost::make_shared<CmsSpread3CouponPricerBuilder>());
-
-....
-    registerLegBuilder(boost::make_shared<CMSSpread3LegBuilder>());
-}
-```
 
 ## ORED: add EngineBuilder
 Builds a QL pricing engine or a QL coupon pricer (typically).
-Uses model and engine parameters from pricingengine.xml and is registered with the engine factory (as shown above).
+Uses model and engine parameters from pricingengine.xml and is registered with the engine factory using `ORE_REGISTER_ENGINE_BUILDER(YourEngineBuilder, false)`.
 
-### Done in ored/portfolio/builders/cmsspread.hpp and .cpp (or extending those as separate files):
+### The coupon pricer builder is added here in ored/portfolio/builders/cmsspread.hpp and .cpp (or extending those as separate files):
 
 ```cpp
 #include <qle/cashflows/lognormalcmsspreadpricerGen.hpp>
