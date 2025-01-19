@@ -123,6 +123,8 @@ Can be used for all kinds of logs, if your type is not built in, then simply rol
 ### SQL Server XML Queries
 With examples from the ORE DB project: [SQLServerXML](SQLServerXML.md)
 
+### SQL Server yield to maturity
+A yield to maturity function for annual bullet bonds with act/act pricing convention: [SQLServerYTM](SQLServerYTM.md)
 
 ### A nice VB script to get the title of the current desktop wallpaper
 
