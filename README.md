@@ -53,10 +53,10 @@ target_compile_definitions(orea-test-suite PUBLIC BOOST_USE_WINAPI_VERSION=0x060
 
 
 ## DBAddin
-DBAddin is an ExcelDNA-based Addin, providing two main functionalities and a definition Tool:
+DBAddin is an ExcelDNA-based Add-in, providing two main functionalities and a definition Tool:
 
-- Userdefined functions (DBFuncs) for database querying. This is opposed to the integrated MS-Query, which is stored statically in the worksheet and has serious limitations in terms of querying possibilities and constructing parameterized queries (MS-Query allows parameterized queries only for simple queries that can be displayed graphically). Further useful functions for working with database data are included as well.
-- Modify Database data in Excel using so called "DBModifiers", which are either datatables that enable you to manipulate database data directly inside Excel (DBMappers, similar to MS Access table view). Another method are DBActions, allowing DML code to be issued (insert/update/delete) and finally DBSequences that put DBMappers and DBActions together, additionally allowing refreshing of DB functions and defining a transactional context (Begin and Commit/Rollback).
+- User-defined functions (DBFuncs) for database querying. This is opposed to the integrated MS-Query, which is stored statically in the worksheet and has serious limitations in terms of querying possibilities and constructing parameterized queries (MS-Query allows parameterized queries only for simple queries that can be displayed graphically). Further useful functions for working with database data are included as well.
+- Modify Database data in Excel using so called "DBModifiers", which are either data-tables that enable you to manipulate database data directly inside Excel (DBMappers, similar to MS Access table view). Another method are DBActions, allowing DML code to be issued (insert/update/delete) and finally DBSequences that put DBMappers and DBActions together, additionally allowing refreshing of DB functions and defining a transactional context (Begin and Commit/Rollback).
 - As a useful "leftover" of the old DBSheets (DBSheets definitions are now used for DBMappers, additionally defining foreign key lookup resolutions for foreign keys, so columns containing foreign IDs can be edited more easily), legacy DBSheet definitions can be edited/created with the "Create DBSheet definition" tool and afterwards assigned to Worksheets with the "Assign DBSheet definition" tool.
 
 [Documentation](https://rkapl123.github.io/DBAddin/)  
@@ -72,19 +72,19 @@ This is an extension and replacement for the now obsolete RAddin.
 ## ExchangeSetOOF
 ExchangeSetOOF provides programmatic setting of automatic replies (out of office) in an exchange environment, based on calendar appointments having an "away" status.
 
-ExchangeSetOOF logs in to the currently logged in users account (using EWS AutoDiscover with users account Emailaddress using System.DirectoryServices.AccountManagement) and searches the appointments between today and the next business day (based on configured holidays) for appointments being set "away".
+ExchangeSetOOF logs in to the currently logged in users account (using EWS AutoDiscover with users account Email-address using System.DirectoryServices.AccountManagement) and searches the appointments between today and the next business day (based on configured holidays) for appointments being set "away".
 
-If any such appointment is found, ExchangeSetOOF replaces the template's date placeholder with the respective end date and (if wanted) also start date. The languages used for the replacement of the date placeholders are configurable (hardcoded are german and english). The automatic reply (out of office) is being scheduled to start from the Start Date of the OOF appointment and end on the End Date of the OOF appointment.
+If any such appointment is found, ExchangeSetOOF replaces the template's date placeholder with the respective end date and (if wanted) also start date. The languages used for the replacement of the date placeholders are configurable (hardcoded are German and English). The automatic reply (out of office) is being scheduled to start from the Start Date of the OOF appointment and end on the End Date of the OOF appointment.
 
 [Documentation and download](https://rkapl123.github.io/ExchangeSetOOF)
 
 ## DatePicker
 
-After struggling to find a replacement for the MSCOMCT2 based Datepicker, I finally decided to wrap the .NET MonthCalendar into a nice and small Add-In that offers this functionality to VBA: [Repository](https://github.com/rkapl123/DatePicker)  
+After struggling to find a replacement for the MSCOMCT2 based Date picker, I finally decided to wrap the .NET MonthCalendar into a nice and small Add-In that offers this functionality to VBA: [Repository](https://github.com/rkapl123/DatePicker)  
 It can also be used directly from the Ribbon to insert date values into cells.
 
 ## CmdLogAddin
-ExcelDNA-based Addin that allows you to parse Excel's Cmdline and start any Macro that is contained either inside the started Workbook, a startup loaded Addin or outside.  
+ExcelDNA-based Add-in that allows you to parse Excel's Cmd-line and start any Macro that is contained either inside the started Workbook, a start-up loaded Add-in or outside.  
 
 Additionally, a logging possibility is provided by retrieving a logger object in VBA (set log = CreateObject("LogAddin.Logger")) and using this to
 provide logging messages using 5 levels:  
@@ -110,7 +110,7 @@ After more than 30 years, I decided to revitalize some of my first projects to c
 Following are links to pages with useful information or tools I've found during my endeavors:
 
 ### Creating Excel Add-Ins with Excel-DNA
-For creating Excel Addins/Solutions, this is a tool/library you simply can't bypass: [http://excel-dna.net/](http://excel-dna.net/)
+For creating Excel Add-ins/Solutions, this is a tool/library you simply can't bypass: [http://excel-dna.net/](http://excel-dna.net/)
 It's very easy to start for all that have some experience in VBA-Programming and - for an open source library - it has a lot of [documentation](https://docs.excel-dna.net/).
 
 ### Parsing Excel Data in Perl with Data-XLSX-Parser
@@ -126,165 +126,6 @@ With examples from the ORE DB project: [SQLServerXML](SQLServerXML.md)
 ### SQL Server yield to maturity
 A yield to maturity function for annual bullet bonds with act/act pricing convention: [SQLServerYTM](SQLServerYTM.md)
 
-### A nice VB script to get the title of the current desktop wallpaper
+### Other Excel and VB/VBscript based Utilities
+like a VBA user defined function for getting non-intersecting range in Excel, a VB script to get the title of the current desktop wallpaper in Windows 10, retrieving Face-IDs for Office Versions >= 2010 and executing VB.NET dynamically: [Utilities](Utilities.md)
 
-As I'm a fond user of beautiful landscape wallpapers and also like to know the location of these pictures, I always try to store the information in the title of these pictures.
-From [what I've seen](https://techdows.com/2016/01/where-windows-10-themes-photos-were-taken.html) this is also done for several Windows 10 desktop themes.
-
-Now, if there is a wallpaper displayed that I'm not really familiar with, I wanted a quick way get to this info. 
-Following script, derived from raveren's [https://gist.github.com/raveren/ab475336cc69879a378b](https://gist.github.com/raveren/ab475336cc69879a378b) does this job quite properly, if there are no unicode characters in the path.
-Put it in a vbs file on the desktop or anywhere easily reachable and click it whenever you need this information!
-
-
-```vb
-Set Shell = CreateObject("WScript.Shell")
-
-' change to TranscodedImageCache_001 for second monitor and so on
-getTitleOfWallpaper("HKCU\Control Panel\Desktop\TranscodedImageCache_000")
-
-Function getTitleOfWallpaper(regKey)
-  ' decode the filename in the given registry storage
-  arr = Shell.RegRead(regKey)
-  a=arr
-  fullPath = ""
-  consequtiveZeroes = 0
-
-  For I = 24 To Ubound(arr)
-    if consequtiveZeroes > 1 then
-      exit for
-    end if
-
-    a(I) = Cint(arr(I))
-
-    if a(I) > 1 then
-      fullPath = fullPath & Chr(a(I))
-      consequtiveZeroes = 0
-    else
-      consequtiveZeroes = consequtiveZeroes + 1
-    end if
-  Next
-  
-  ' read the picture file from there
-  TotalFile = readBinary(fullPath)
-  
-  ' grab the title from the file's meta information
-  Dim oRe, oMatches
-  Set oRe = New RegExp
-  oRe.Pattern = "<dc:title><rdf:Alt .*?><rdf:li .*?>(.*?)</rdf:li></rdf:Alt>"
-  Set oMatches = oRe.Execute(TotalFile)
-  On Error Resume Next
-  MsgBox(oMatches(0).SubMatches(0))
-  if Err<>0 then MsgBox "No Title property found in current Wallpaper image !"
-End Function
-
-Function readBinary(strPath)
-  Dim objStream, fso
-  Set fso = CreateObject("Scripting.FileSystemObject")
-  If not fso.FileExists(strPath) Then 
-    MsgBox("File not found: " & strPath) 
-    Exit Function
-  End If
-  Set objStream = CreateObject("ADODB.Stream")
-  objStream.CharSet = "utf-8"
-  objStream.Open
-  objStream.LoadFromFile(strPath)
-  readBinary = objStream.ReadText()
-  objStream.Close
-End Function
-```
-
-### Face-IDs for Office Versions >= 2010
-Following Code was adapted from John D. Mclean's code for Excel <= 2003 and displays all Face-IDs available for commandbar buttons in the Add-Ins ribbon (this is a long list, change the 4891 (max. number for Office 2010) to your office version):
-
-```vb
-Option Explicit
-Sub DisplayButtonFacesInGrid()
-Const cbName = "FaceId"
-Dim cBar As CommandBar, cBut As CommandBarControl
-Dim r As Long, c As Integer, count As Integer
-
-  count = 0
-  Do                          'loop through all FaceIDs
-    If count Mod 100 = 0 Then
-        On Error Resume Next
-        Application.CommandBars(count \ 100 & cbName).Delete
-        On Error GoTo 0
-        Set cBar = Application.CommandBars.Add    'create temporary ToolBar with one button
-        With cBar
-          .Name = count \ 100 & cbName
-          .Top = count \ 100
-          .Left = 0
-          .Visible = True
-          .RowIndex = count \ 100
-        End With
-    End If
-
-    Set cBut = Application.CommandBars(count \ 100 & cbName).Controls.Add(Type:=msoControlButton)
-    cBut.FaceId = count
-    cBut.Caption = count
-    count = count + 1
-    Application.StatusBar = "Creating Button FaceIDs " & count
-  Loop While count < 4891 '4890 seems to be the maximum FaceID #
-  Application.StatusBar = ""
-End Sub
-
-' to get rid of all the command bars added to the Add-Ins ribbon, run the following procedure
-Sub RemoveAddedCommandBars()
-Const cbName = "FaceId"
-Dim count As Integer
-
-  count = 0
-  Do                          'loop through all FaceIDs
-    If count Mod 100 = 0 Then
-        On Error Resume Next
-        Application.CommandBars(count \ 100 & cbName).Delete
-        On Error GoTo 0
-    End If
-    count = count + 1
-  Loop While count < 4891 '4890 seems to be the maximum FaceID #
-End Sub
-```
-
-### executing VB.NET dynamically
-
-Using below method you can execute dynamically provided code, in order to execute C-Sharp code, replace "VisualBasic" with "CSharp" in the `Dim codeProvider As CodeDomProvider = CodeDomProvider.CreateProvider("VisualBasic")` assignmenent.
-
-```vb
-Imports Microsoft.VisualBasic
-Imports System.CodeDom
-Imports System.CodeDom.Compiler
-
-Public Module Module1
-
-    Public Sub runExampleScript()
-        Dim script As String = "Public Class DummyClass" + vbCrLf +
-        "Public Shared Function DoSomething(paramString As String) As String" + vbCrLf +
-        "Return ""Hello World, you provided: "" + paramString " + vbCrLf +
-        "End Function" + vbCrLf +
-        "End Class"
-        MsgBox(ExecuteScript(script))
-    End Sub
-
-    Public Function ExecuteScript(ByVal scripttext As String) As String
-        Dim codeProvider As CodeDomProvider = CodeDomProvider.CreateProvider("VisualBasic")
-        Dim params As New CompilerParameters With {
-            .GenerateExecutable = False,
-            .GenerateInMemory = True,
-            .IncludeDebugInformation = False,
-            .TreatWarningsAsErrors = False
-        }
-        ' add any required assemblies needed by the dynamic code here:
-        'params.ReferencedAssemblies.Add("system.dll")
-        'params.ReferencedAssemblies.Add("System.Windows.Forms.dll")
-        Dim results As CompilerResults = codeProvider.CompileAssemblyFromSource(params, scripttext)
-        If results.Errors.Count = 0 Then
-            Dim methParams(0) As Object
-            methParams(0) = ExcelDnaUtil.Application.ActiveCell.Text
-            Return results.CompiledAssembly.GetType("DummyClass").GetMethod("DoSomething").Invoke(Nothing, methParams)
-        Else
-            Return Nothing
-        End If
-    End Function
-
-End Module
-```
