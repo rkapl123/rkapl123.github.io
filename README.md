@@ -57,7 +57,8 @@ DBAddin is an ExcelDNA-based Add-in, providing two main functionalities and a de
 
 - User-defined functions (DBFuncs) for database querying. This is opposed to the integrated MS-Query, which is stored statically in the worksheet and has serious limitations in terms of querying possibilities and constructing parameterized queries (MS-Query allows parameterized queries only for simple queries that can be displayed graphically). Further useful functions for working with database data are included as well.
 - Modify Database data in Excel using so called "DBModifiers", which are either data-tables that enable you to manipulate database data directly inside Excel (DBMappers, similar to MS Access table view). Another method are DBActions, allowing DML code to be issued (insert/update/delete) and finally DBSequences that put DBMappers and DBActions together, additionally allowing refreshing of DB functions and defining a transactional context (Begin and Commit/Rollback).
-- As a useful "leftover" of the old DBSheets (DBSheets definitions are now used for DBMappers, additionally defining foreign key lookup resolutions for foreign keys, so columns containing foreign IDs can be edited more easily), legacy DBSheet definitions can be edited/created with the "Create DBSheet definition" tool and afterwards assigned to Worksheets with the "Assign DBSheet definition" tool.
+- DBSheets are an extension of DBMappers (setting Create/Update/Delete flags for edited rows, and having foreign key lookup resolutions for foreign keys, so columns containing foreign IDs can be edited more easily).
+DBSheet definitions can be edited/created with the "Create DBSheet definition" tool and afterwards assigned to Worksheets with the "Assign DBSheet definition" tool.
 
 [Documentation](https://rkapl123.github.io/DBAddin/)  
 [Slideshow](https://rkapl123.github.io/dbaddinslides/)
